@@ -1,0 +1,224 @@
+db.loja.insert(
+	{
+		total_fact: "5000",
+		total_gasto: "2000",
+		rua: "Rua dos Aliados",
+		cod_postal: "4400-000",
+		localidade: "Porto"
+	}
+);
+		
+db.disco.insert([
+				{
+					titulo: "Another Brick in the Wall",
+					nr_faixas: "20",
+					duracao: "1:03:56",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "34.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Rock Classico"],
+					compra: "7"
+				},
+				{
+					titulo: "Another Brick in the Wall",
+					nr_faixas: "20",
+					duracao: "1:03:56",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "34.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Rock Classico"]
+				},
+				{
+					titulo: "Another Brick in the Wall",
+					nr_faixas: "20",
+					duracao: "1:03:56",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "34.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Rock Classico"]
+				},
+				{
+					titulo: "Greatest Hits",
+					nr_faixas: "18",
+					duracao: "1:00:32",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "25",
+					Disco_Artista: ["Queen"],
+					Disco_Genero: ["Pop Rock"],
+					compra: "6"
+				},
+				{
+					titulo: "Greatest Hits",
+					nr_faixas: "18",
+					duracao: "1:00:32",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "25",
+					Disco_Artista: ["Queen"],
+					Disco_Genero: ["Pop Rock"]
+				},
+				{
+					titulo: "The Darkside of the Moon",
+					nr_faixas: "20",
+					duracao: "1:02:20",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "99.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Hard Rock"],
+					compra: "5"
+				},
+				{
+					titulo: "The Darkside of the Moon",
+					nr_faixas: "20",
+					duracao: "1:02:20",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "99.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Hard Rock"],
+					compra: "4"
+				},
+				{
+					titulo: "Meddle",
+					nr_faixas: "20",
+					duracao: "1:20:00",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "34.90",
+					Disco_Artista: ["Elvis Presley", "Pink Floyd"],
+					Disco_Genero: ["Jazz", "Jazz Fusion"],
+					compra: "1"
+				},
+				{
+					titulo: "Obscured by the Clouds",
+					nr_faixas: "15",
+					duracao: "00:59:56",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "34.90",
+					Disco_Artista: ["Pink Floyd"],
+					Disco_Genero: ["Rock Progressivo"],
+					compra: "1"
+				},
+				{
+					titulo: "Lebre",
+					nr_faixas: "11",
+					duracao: "00:44:33",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "20",
+					Disco_Artista: ["Diabo na Cruz"],
+					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"]
+				},
+				{
+					titulo: "Lebre",
+					nr_faixas: "11",
+					duracao: "00:44:33",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "20",
+					Disco_Artista: ["Diabo na Cruz"],
+					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
+					compra: "2"
+				},
+				{
+					titulo: "Lebre",
+					nr_faixas: "11",
+					duracao: "00:44:33",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "20",
+					Disco_Artista: ["Diabo na Cruz"],
+					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
+					compra: "3"
+				}
+			]);
+			
+db.clientes.insert([
+				{
+					nome: "João Faria",
+					email: "joaofaria@gmail.com",
+					cod_postal: "4232-123",
+					rua: "Rua Americana",
+					localidade: "Porto",
+					nr_discos: "1",
+					estatuto: "NORMAL",
+					telefone: ["919191919"],
+					Compra: [
+								{
+								data_compra: "2011-11-11",
+								custo_total: "70",
+								idCompra: "1"
+								},
+								{
+								data_compra: "2018-05-27",
+								custo_total: "20",
+								idCompra: "2"
+								},
+								{
+								data_compra: "2018-11-13",
+								custo_total: "20",
+								idCompra: "3"
+								},
+								{
+								data_compra: "2018-12-24",
+								custo_total: "99.90",
+								idCompra: "4"
+								}
+							]
+				},
+				{
+					nome: "Sérgio Abreu",
+					email: "sergioabreu@gmail.com",
+					cod_postal: "3234-100",
+					rua: "Rua das Tulipas",
+					localidade: "Ponte de Lima",
+					nr_discos: "55",
+					estatuto: "NORMAL",
+					telefone: ["923684764", "915915915"],
+				},
+				{
+					nome: "Soraia Lopes",
+					email: "soraialopes@gmail.com",
+					cod_postal: "2033-300",
+					rua: "Rua Padre Jose",
+					localidade: "Porto",
+					nr_discos: "3",
+					estatuto: "NORMAL",
+					Compra: [
+								{
+								data_compra: "2008-03-02",
+								custo_total: "100",
+								idCompra: "5"
+								}
+							]
+				},
+				{
+					nome: "Isabel Silva",
+					email: "isabelsilva@gmail",
+					cod_postal: "4800-300",
+					rua: "Rua Central",
+					localidade: "Guimarães",
+					nr_discos: "1",
+					estatuto: "NORMAL",
+					telefone: ["917008316"],
+					Compra: [
+								{
+								data_compra: "2015-05-05",
+								custo_total: "25",
+								idCompra: "6"
+								},
+								{
+								data_compra: "2018-12-05",
+								custo_total: "30",
+								idCompra: "7"
+								}
+							]
+					
+				}
+			]);
