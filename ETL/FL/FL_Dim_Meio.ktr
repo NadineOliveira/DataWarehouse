@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>FL_Dim_Meio</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -440,13 +440,13 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>DW-AR</database>
+    <database>dw-ar</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -507,54 +507,71 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>aguar carregamento de dimDiscos</from>
+      <to>PreDimGenero</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aguar carregamento de dimDiscos</from>
+      <to>PreDimArtista</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>PreDimGenero</from>
+      <to>aguarda por predimgenero</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aguarda por predimgenero</from>
       <to>Carregar DimGenero</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>PreDimArtista</from>
+      <to>aguarda por predimartista</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aguarda por predimartista</from>
       <to>Carregar DimArtista</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Carregar DimLoja</name>
+    <name>Carregar DimArtista</name>
     <type>ExecSQL</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <execute_each_row>Y</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>call sp_insert_loja(?,?,?,?);</sql>
+    <sql>call sp_insert_artista(?,?,?);</sql>
     <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
     <arguments>
-      <argument>
-        <name>idpre_dim_Loja</name>
-      </argument>
       <argument>
         <name>source_id</name>
       </argument>
       <argument>
-        <name>localidade</name>
+        <name>nome</name>
       </argument>
       <argument>
-        <name>data_Compra</name>
+        <name>id_disco</name>
       </argument>
     </arguments>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -562,77 +579,21 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Carregar DimDisco</name>
-    <type>ExecSQL</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW-AR</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_insert_disco(?,?,?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>id_disco_source</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>titulo</name>
-      </argument>
-      <argument>
-        <name>compra_preco</name>
-      </argument>
-      <argument>
-        <name>tipo</name>
-      </argument>
-      <argument>
-        <name>pvp</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>384</yloc>
+      <xloc>1024</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Carregar DimCliente</name>
     <type>ExecSQL</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <execute_each_row>Y</execute_each_row>
@@ -641,10 +602,10 @@
     <quoteString>N</quoteString>
     <sql>call sp_insert_cliente(?,?,?,?,?,?,?);</sql>
     <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
     <arguments>
       <argument>
         <name>id_Cliente_source</name>
@@ -668,8 +629,8 @@
         <name>nr_discos</name>
       </argument>
     </arguments>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -683,32 +644,224 @@
     </GUI>
   </step>
   <step>
-    <name>PreDimLoja</name>
-    <type>TableInput</type>
-    <description />
+    <name>Carregar DimGenero</name>
+    <type>ExecSQL</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>DW-AR</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>call sp_insert_genero(?,?,?);</sql>
+    <set_params>Y</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+      <argument>
+        <name>source_id</name>
+      </argument>
+      <argument>
+        <name>genero</name>
+      </argument>
+      <argument>
+        <name>id_disco</name>
+      </argument>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PreDimArtista</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
-  idpre_dim_Loja
+  idpre_dim_Artista
 , source_id
-, localidade
-, data_Compra
-FROM pre_dim_Loja
-WHERE operation = 'I'
+, nome
+, id_disco
+FROM pre_dim_Artista
+
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carregar DimDisco</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DW-AR</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>call sp_insert_disco(?,?,?,?,?,?);</sql>
+    <set_params>Y</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+      <argument>
+        <name>id_disco_source</name>
+      </argument>
+      <argument>
+        <name>source_id</name>
+      </argument>
+      <argument>
+        <name>titulo</name>
+      </argument>
+      <argument>
+        <name>compra_preco</name>
+      </argument>
+      <argument>
+        <name>tipo</name>
+      </argument>
+      <argument>
+        <name>pvp</name>
+      </argument>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PreDimGenero</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DW-AR</connection>
+    <sql>SELECT
+  idpre_dim_Genero
+, source_id
+, genero
+, id_disco
+FROM pre_dim_Genero
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carregar DimLoja</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DW-AR</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>call sp_insert_loja(?,?,?,?);</sql>
+    <set_params>Y</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+      <argument>
+        <name>idpre_dim_Loja</name>
+      </argument>
+      <argument>
+        <name>source_id</name>
+      </argument>
+      <argument>
+        <name>localidade</name>
+      </argument>
+      <argument>
+        <name>data_Compra</name>
+      </argument>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -717,60 +870,20 @@ WHERE operation = 'I'
     </remotesteps>
     <GUI>
       <xloc>432</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PreDimDisco</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW-AR</connection>
-    <sql>SELECT
-  id_disco_source
-, source_id
-, titulo
-, compra_preco
-, tipo
-, pvp
-FROM pre_dim_disco
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>160</yloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>PreDimCliente</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
@@ -784,12 +897,12 @@ FROM pre_dim_disco
 FROM pre_dim_Cliente
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -803,82 +916,33 @@ FROM pre_dim_Cliente
     </GUI>
   </step>
   <step>
-    <name>Carregar DimGenero</name>
-    <type>ExecSQL</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW-AR</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_insert_genero(?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>idpre_dim_Genero</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>genero</name>
-      </argument>
-      <argument>
-        <name>id_disco</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PreDimGenero</name>
+    <name>PreDimDisco</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
-  idpre_dim_Genero
+  id_disco_source
 , source_id
-, genero
-, id_disco
-FROM pre_dim_Genero
-
+, titulo
+, compra_preco
+, tipo
+, pvp
+FROM pre_dim_disco
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -886,49 +950,37 @@ FROM pre_dim_Genero
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
+      <xloc>624</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Carregar DimArtista</name>
-    <type>ExecSQL</type>
-    <description />
+    <name>PreDimLoja</name>
+    <type>TableInput</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_insert_maquina(?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>idpre_dim_Artista</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>nome</name>
-      </argument>
-      <argument>
-        <name>id_disco</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
+    <sql>SELECT
+  idpre_dim_Loja
+, source_id
+, localidade
+, data_Compra
+FROM pre_dim_Loja
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -936,38 +988,34 @@ FROM pre_dim_Genero
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>384</yloc>
+      <xloc>432</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PreDimArtista</name>
-    <type>TableInput</type>
-    <description />
+    <name>aguar carregamento de dimDiscos</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <connection>DW-AR</connection>
-    <sql>SELECT
-  idpre_dim_Artista
-, source_id
-, nome
-, id_disco
-FROM pre_dim_Artista
-
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <steps>
+      <step>
+        <name>Carregar DimDisco</name>
+        <CopyNr>0</CopyNr>
+      </step>
+      <step>
+        <name>Carregar DimDisco</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -975,8 +1023,70 @@ FROM pre_dim_Artista
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>160</yloc>
+      <xloc>944</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aguarda por predimgenero</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>PreDimGenero</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aguarda por predimartista</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>PreDimArtista</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -985,5 +1095,21 @@ FROM pre_dim_Artista
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes />
+  <attributes>
+    <group>
+      <name>explorerState</name>
+      <attribute>
+        <key>aguar carregamento de dimDiscos</key>
+        <value/>
+      </attribute>
+      <attribute>
+        <key>aguarda por predimgenero</key>
+        <value/>
+      </attribute>
+      <attribute>
+        <key>aguarda por predimartista</key>
+        <value/>
+      </attribute>
+    </group>
+  </attributes>
 </transformation>
