@@ -82,17 +82,17 @@ INSERT INTO Disco
 	(titulo,nr_faixas,duracao,rpm,tipo,pvp,compra_preco,abastecimento_custo,compra,abastecimento,loja)
 	VALUES
 	('Another Brick in the Wall',20,'1:03:56',33,'LP',34.90, 30,20,1,1,2),
-    ('Another Brick in the Wall',20,'1:03:56',33,'LP',34.90, 25,20,3,1,1),
-    ('The Darkside of the Moon',20,'1:02:20',33,'LP',99.90, null,50,2,1,1),
-    ('The Darkside of the Moon',20,'1:02:20',33,'LP',99.90, null,50,4,1,1),
-	('Obscured by Clouds',15,'0:59:56',33,'LP',34.90, null,20,6,1,1),
-	('Atom Mother Earth',10,'0:44:30',33,'EP',14.90, null,10,5,4,2),
-    ('Meddle',20,'01:20:00',33,'LP',34.90, null,20,10,1,1),
-    ('Meddle',20,'01:20:00',33,'LP',34.90, null,20,11,1,2),
-    ('Meddle',20,'01:20:00',33,'LP',34.90, null,20,8,1,1),
-    ('Greatest Hits',18,'01:00:32',33,'LP',35, null,22,9,3,1),
-    ('Greatest Hits',18,'01:00:32',33,'LP',35, null,22,3,3,1),
-    ('Greatest Hits',18,'01:00:32',33,'LP',35, null,22,3,3,1);
+    ('Another Brick in the Wall',20,'1:03:56',33,'LP',34.90, 25,20,3,1,2),
+    ('The Darkside of the Moon',20,'1:02:20',33,'LP',99.90, null,null,2,1,2),
+    ('The Darkside of the Moon',20,'1:02:20',33,'LP',99.90, null,null,4,1,2),
+	('Obscured by Clouds',15,'0:59:56',33,'LP',34.90, 10,8,6,1,2),
+	('Atom Mother Earth',10,'0:44:30',33,'EP',14.90, 14,10,5,4,2),
+    ('Meddle',20,'01:20:00',33,'LP',34.90, 23,10,10,1,2),
+    ('Meddle',20,'01:20:00',33,'LP',34.90, 11,8,11,1,2),
+    ('Meddle',20,'01:20:00',33,'LP',34.90, null,null,8,1,2),
+    ('Greatest Hits',18,'01:00:32',33,'LP',35, 12,12,9,3,2),
+    ('Greatest Hits',18,'01:00:32',33,'LP',35, 14,12,3,3,2),
+    ('Greatest Hits',18,'01:00:32',33,'LP',35, 25,12,3,3,2);
 
 -- Povoamento da tabela  `Jonas Discos`.`Disco_Artista`
 INSERT INTO Disco_Artista

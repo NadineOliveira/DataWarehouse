@@ -6,8 +6,8 @@ USE `dw-ar`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `inc_datas`()
 BEGIN
 
-SET @startDate = (SELECT MIN(data_compra) FROM pre_dim_loja);
-SET @endDate = (SELECT MAX(data_compra) FROM pre_dim_loja);
+SET @startDate = (SELECT MIN(data_compra) FROM pre_dim_disco);
+SET @endDate = (SELECT MAX(data_compra) FROM pre_dim_disco);
 	
     while @startDate<=@endDate DO
 		SET @m = (SELECT MONTH(@startDate));
@@ -17,12 +17,12 @@ SET @endDate = (SELECT MAX(data_compra) FROM pre_dim_loja);
         SET @s = (SELECT WEEK(@startDate));
         SET @sem = concat(@s,"-",@ano);
 		select 
-		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 1
-			ELSE 0
+		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 'S'
+			ELSE 'N'
 			END
 		INTO @fds;
-		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia)
-		VALUES(@fds,@mes,@sem,@dia);
+		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia,data)
+		VALUES(@fds,@mes,@sem,@dia,@startDate);
 		
 		SET @startDate = DATE_ADD(@startDate, INTERVAL 1 DAY);
 	END WHILE;
@@ -34,12 +34,12 @@ SET @endDate = (SELECT MAX(data_compra) FROM pre_dim_loja);
         SET @s = (SELECT WEEK(@startDate));
         SET @sem = concat(@s,"-",@ano);
 		select 
-		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 1
-			ELSE 0
+		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 'S'
+			ELSE 'N'
 			END 
 		INTO @fds;
-		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia)
-		VALUES(@fds,@mes,@sem,@dia);
+		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia,data)
+		VALUES(@fds,@mes,@sem,@dia,@startDate);
 END$$
 
 DELIMITER ;
