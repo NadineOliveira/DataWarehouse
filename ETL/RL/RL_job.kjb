@@ -11,6 +11,61 @@
   <modified_date>2019/01/18 12:37:31.199</modified_date>
   <parameters>
     </parameters>
+  <connection>
+    <name>DW-AR</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>DW-AR</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -313,15 +368,17 @@
       <description />
       <type>SQL</type>
       <attributes />
-      <sql>delete from prefactvendas;
-delete from predimproduto;
-delete from predimutilizador;
-delete from predimmaquina;</sql>
+      <sql>delete from pre_TF_Vendas;
+delete from pre_dim_Cliente;
+delete from pre_dim_Loja;
+delete from pre_dim_disco;
+delete from pre_dim_Genero;
+delete from pre_dim_Artista;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename />
       <sendOneStatement>F</sendOneStatement>
-      <connection />
+      <connection>DW-AR</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -449,7 +506,7 @@ delete from auditmorada;</sql>
       <attributes />
       <specification_method>filename</specification_method>
       <job_object_id />
-      <filename>${Internal.Job.Filename.Directory}\RL_Variables.kjb</filename>
+      <filename>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/ETL/RL/CheckLastLoad/RL_CheckLastLoad.kjb</filename>
       <jobname />
       <directory />
       <arg_from_previous>N</arg_from_previous>

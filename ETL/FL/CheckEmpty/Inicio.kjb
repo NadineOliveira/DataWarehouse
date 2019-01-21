@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>AR_DW_job</name>
+  <name>Inicio</name>
   <description />
   <extended_description />
   <job_version />
   <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2019/01/18 11:39:59.091</created_date>
+  <created_date>2019/01/21 22:13:15.430</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/01/18 11:39:59.091</modified_date>
+  <modified_date>2019/01/21 22:13:15.430</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -19,7 +19,7 @@
     <database>DW-AR</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
     <servername />
     <data_tablespace />
     <index_tablespace />
@@ -397,7 +397,336 @@
   <shared_objects_file />
   <entries>
     <entry>
-      <name>START</name>
+      <name>Clean AR</name>
+      <description />
+      <type>SQL</type>
+      <attributes />
+      <sql>delete from dimCalendario;
+delete from dimDisco;
+delete from dimCliente;
+delete from dimLoja;
+delete from dimGenero;
+delete from dimArtista;
+delete from TF_Vendas;
+
+delete from pre_dim_disco;
+delete from pre_dim_Loja;
+delete from pre_dim_Cliente;
+delete from pre_dim_Genero;
+delete from pre_dim_Artista;
+delete from pre_TF_Vendas;
+
+delete from lk_loja;
+delete from lk_Cliente;
+delete from lk_Artista;
+delete from lk_Disco;
+delete from lk_Artista;
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename />
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DW-AR</connection>
+      <parallel>Y</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>374</xloc>
+      <yloc>211</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Clean DW</name>
+      <description />
+      <type>SQL</type>
+      <attributes />
+      <sql>delete from dimCalendario;
+delete from dimDisco;
+delete from dimCliente;
+delete from dimLoja;
+delete from dimGenero;
+delete from dimArtista;
+delete from TF_Vendas;
+
+delete from histDisco;
+delete from histCliente;
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename />
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DW-dw</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>438</xloc>
+      <yloc>211</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Activate Procedure Insert Disco</name>
+      <description />
+      <type>SQL</type>
+      <attributes />
+      <sql>USE `dw-ar`;
+DROP procedure IF EXISTS `sp_insert_disco`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_disco`(p_id_disco_source INT, p_source_id VARCHAR(45),p_titulo VARCHAR(128),
+									p_compra_preco FLOAT, p_tipo VARCHAR(128), p_pvp FLOAT,p_data_compra DATE)
+BEGIN
+INSERT INTO lk_disco(id_disco_source,source_id,data_compra) VALUES (p_id_disco_source,p_source_id,p_data_compra);
+IF (p_data_compra is not null) THEN
+	INSERT INTO `dw-ar`.dimdisco(titulo,compra_preco,tipo,pvp,data_compra) values(p_titulo,p_compra_preco,p_tipo,p_pvp,p_data_compra);
+END IF;
+END$$
+
+DELIMITER ;
+
+DROP procedure IF EXISTS `sp_insert_cliente`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_cliente`(p_id_Cliente_source INT, p_source_id VARCHAR(45),p_email VARCHAR(128),
+p_nome VARCHAR(45),p_localidade VARCHAR(45), p_estatuto VARCHAR(45), p_nr_discos INT)
+BEGIN
+DECLARE id, existe INT;
+SET id = (SELECT LK.id FROM lk_cliente AS LK
+			WHERE LK.email = p_email
+            AND p_source_id like LK.source_id);
+            
+IF(id is null) THEN/*id nao existe na tabela lookup*/
+START TRANSACTION;
+INSERT INTO lk_cliente(id_Cliente_source,source_id,email) VALUES(p_id_Cliente_source,p_source_id,p_email);
+SET id = (SELECT LK.id FROM lk_cliente AS LK
+			WHERE LK.email = p_email
+            AND p_source_id like LK.source_id);
+COMMIT; 
+END IF;
+SET existe = (SELECT idDimCliente FROM dimcliente WHERE iddimCliente = id);
+IF (existe is null) THEN
+INSERT INTO dimcliente VALUES(id,p_email,p_nome,p_localidade,p_estatuto,p_nr_discos);
+END IF;
+END$$
+DELIMITER ;
+
+DROP procedure IF EXISTS `sp_insert_loja`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_loja`(p_idpre_dim_loja INT, p_source_id VARCHAR(45),
+p_localidade VARCHAR(45))
+BEGIN
+DECLARE id, existe INT;
+SET id = (SELECT LK.id FROM lk_loja AS LK
+			WHERE p_source_id like LK.source_id
+            AND p_localidade like LK.localidade);
+
+IF(id is null) THEN
+START TRANSACTION;
+INSERT INTO lk_loja(id_loja_source,source_id,localidade) VALUES(p_idpre_dim_loja,p_source_id,p_localidade);
+SET id = (SELECT LK.id FROM lk_loja AS LK 
+			WHERE p_source_id like LK.source_id
+            AND p_localidade like LK.localidade);
+COMMIT;
+END IF;
+
+SET existe = (SELECT iddimLoja FROM dimloja WHERE iddimLoja = id);
+IF (existe is null) THEN
+INSERT INTO dimloja VALUES(id,p_localidade);
+END IF;
+END$$
+
+DELIMITER ;
+
+DROP procedure IF EXISTS `sp_insert_artista`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE PROCEDURE `sp_insert_artista` (p_source_id VARCHAR(45), 
+p_nome VARCHAR(128),p_id_disco INT)
+BEGIN
+DECLARE idA, idD, existe INT;
+SET idA = (SELECT LK.id FROM lk_artista AS LK
+			WHERE LK.nome = p_nome
+            AND p_source_id like LK.source);
+SET idD = (SELECT LKD.id FROM lk_disco AS LKD
+			WHERE LKD.id_disco_source = p_id_disco
+            AND p_source_id like LKD.source_id);
+
+IF(idA is null) THEN
+START TRANSACTION;
+INSERT INTO lk_artista(id_disco_source,source,nome) VALUES(p_id_disco,p_source_id,p_nome);
+SET idA = (SELECT LK.id FROM lk_artista AS LK
+			WHERE LK.nome = p_nome
+            AND p_source_id like LK.source);
+COMMIT;
+END IF;
+
+SET existe = (SELECT idDimArtista FROM dimartista WHERE iddimArtista = idA);
+IF (existe is null) THEN
+INSERT INTO dimArtista VALUES(idA,p_nome,idD);
+END IF;
+END$$
+
+DELIMITER ;
+
+
+DROP procedure IF EXISTS `sp_insert_genero`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_genero`(p_source_id VARCHAR(45), 
+p_genero VARCHAR(128),p_id_disco INT)
+BEGIN
+DECLARE idG, idD, existe INT;
+SET idG = (SELECT LK.id FROM lk_genero AS LK
+			WHERE LK.genero = p_genero
+            AND p_source_id like LK.source_id);
+SET idD = (SELECT LKD.id FROM lk_disco AS LKD
+			WHERE LKD.id_disco_source = p_id_disco
+            AND p_source_id like LKD.source_id);
+
+IF(idG is null) THEN
+START TRANSACTION;
+INSERT INTO lk_genero(id_disco_source,source_id,genero) VALUES(p_id_disco,p_source_id,p_genero);
+SET idG = (SELECT LK.id FROM lk_genero AS LK
+			WHERE LK.genero = p_genero
+            AND p_source_id like LK.source_id);
+COMMIT; 
+END IF;
+SET existe = (SELECT idDimGenero FROM dimgenero WHERE iddimGenero = idG);
+IF (existe is null) THEN
+INSERT INTO dimGenero VALUES(idG,p_genero,idD);
+END IF;
+END$$
+
+DELIMITER ;
+
+
+
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename />
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DW-AR</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>208</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Activate Procedure Inc_Datas</name>
+      <description />
+      <type>SQL</type>
+      <attributes />
+      <sql>USE `dw-ar`;
+DROP procedure IF EXISTS `inc_datas`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `inc_datas`()
+BEGIN
+
+SET @startDate = (SELECT MIN(data_compra) FROM pre_dim_disco);
+SET @endDate = (SELECT MAX(data_compra) FROM pre_dim_disco);
+	
+    while @startDate&lt;=@endDate DO
+		SET @m = (SELECT MONTH(@startDate));
+		SET @ano = (SELECT YEAR(@startDate));
+		SET @mes = concat(@m,"-",@ano);
+		SET @dia = dayname(@startDate);
+        SET @s = (SELECT WEEK(@startDate));
+        SET @sem = concat(@s,"-",@ano);
+		select 
+		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 'S'
+			ELSE 'N'
+			END
+		INTO @fds;
+		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia,data)
+		VALUES(@fds,@mes,@sem,@dia,@startDate);
+		
+		SET @startDate = DATE_ADD(@startDate, INTERVAL 1 DAY);
+	END WHILE;
+
+		SET @m = (SELECT MONTH(@startDate));
+		SET @ano = (SELECT YEAR(@startDate));
+		SET @mes = concat(@m,"-",@ano);
+		SET @dia = dayname(@startDate);
+        SET @s = (SELECT WEEK(@startDate));
+        SET @sem = concat(@s,"-",@ano);
+		select 
+		CASE WHEN dayofweek(@startDate) IN (7,1) THEN 'S'
+			ELSE 'N'
+			END 
+		INTO @fds;
+		INSERT INTO `dw-ar`.dimcalendario(`fim-de-semana`,mes,semana,dia,data)
+		VALUES(@fds,@mes,@sem,@dia,@startDate);
+END$$
+
+DELIMITER ;
+
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename />
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DW-AR</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>646</xloc>
+      <yloc>275</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Activate Procedure Insert_Factos</name>
+      <description />
+      <type>SQL</type>
+      <attributes />
+      <sql>USE `dw-ar`;
+DROP procedure IF EXISTS `sp_insert_factos`;
+
+DELIMITER $$
+USE `dw-ar`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_factos`(p_localidade VARCHAR(128),
+p_data_compra DATE, p_custo_total FLOAT, p_id_disco INT,
+p_email VARCHAR(128))
+BEGIN	
+DECLARE loc, disco,cliente,calendario VARCHAR(128);
+	SET loc = (SELECT L.id FROM `dw-ar`.lk_loja AS L
+					WHERE L.localidade like p_localidade);
+	SET disco = (SELECT D.id FROM `dw-ar`.lk_disco AS D
+					WHERE D.id_disco_source = p_id_disco
+                    AND D.data_compra = p_data_compra);
+	SET cliente = (SELECT C.id FROM `dw-ar`.lk_cliente AS C
+					WHERE C.email = p_email);
+    SET calendario = (SELECT CAL.idDimCalendario FROM `dw-ar`.dimcalendario AS CAL
+						WHERE CAL.data = p_data_compra);  
+                        
+	INSERT INTO tf_vendas(valor,calendarioFK,clienteFK,discoFK,lojaFK)
+				VALUES(p_custo_total,calendario,cliente,disco,loc);
+END$$
+
+DELIMITER ;
+</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename />
+      <sendOneStatement>F</sendOneStatement>
+      <connection>DW-AR</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>646</xloc>
+      <yloc>339</yloc>
+      <attributes_kjc />
+    </entry>
+    <entry>
+      <name>Start</name>
       <description />
       <type>SPECIAL</type>
       <attributes />
@@ -414,148 +743,15 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>234</xloc>
-      <yloc>119</yloc>
-      <attributes_kjc />
-    </entry>
-    <entry>
-      <name>Dimensoes</name>
-      <description />
-      <type>JOB</type>
-      <attributes />
-      <specification_method>filename</specification_method>
-      <job_object_id />
-      <filename>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/ETL/AR_DW/Dimensoes/AR_DW_Dimensoes.kjb</filename>
-      <jobname />
-      <directory />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
-      <attributes_kjc />
-    </entry>
-    <entry>
-      <name>Set last_load</name>
-      <description />
-      <type>SQL</type>
-      <attributes />
-      <sql>update etl set last_load = now();</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename />
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DW-dw</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>544</xloc>
-      <yloc>256</yloc>
-      <attributes_kjc />
-    </entry>
-    <entry>
-      <name>Clear StagingArea</name>
-      <description />
-      <type>SQL</type>
-      <attributes />
-      <sql>delete from dimLoja;
-delete from dimCliente;
-delete from dimDisco;
-delete from dimGenero;
-delete from dimArtista;
-delete from TF_Vendas;
-
-delete from pre_dim_Disco;
-delete from pre_dim_Cliente;
-delete from pre_dim_Loja;
-delete from pre_dim_Genero;
-delete from pre_dim_Artista;
-delete from pre_TF_Vendas;
-
-delete from lk_Cliente;
-delete from lk_Disco;
-delete from lk_Artista;
-delete from lk_Genero;
-
-
-
-
-</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename />
-      <sendOneStatement>F</sendOneStatement>
-      <connection>DW-AR</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>672</xloc>
-      <yloc>256</yloc>
-      <attributes_kjc />
-    </entry>
-    <entry>
-      <name>Tabela Factos</name>
-      <description />
-      <type>TRANS</type>
-      <attributes />
-      <specification_method>filename</specification_method>
-      <trans_object_id />
-      <filename>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/ETL/AR_DW/Tab Factos/AR_DW_TabFact.ktr</filename>
-      <transname />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>538</xloc>
-      <yloc>119</yloc>
+      <xloc>176</xloc>
+      <yloc>208</yloc>
       <attributes_kjc />
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>START</from>
-      <to>Dimensoes</to>
+      <from>Start</from>
+      <to>Clean AR</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -563,8 +759,35 @@ delete from lk_Genero;
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Dimensoes</from>
-      <to>Tabela Factos</to>
+      <from>Clean AR</from>
+      <to>Clean DW</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Clean DW</from>
+      <to>Activate Procedure Insert Disco</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Activate Procedure Insert Disco</from>
+      <to>Activate Procedure Inc_Datas</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Activate Procedure Inc_Datas</from>
+      <to>Activate Procedure Insert_Factos</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -574,20 +797,5 @@ delete from lk_Genero;
   </hops>
   <notepads>
   </notepads>
-  <attributes>
-    <group>
-      <name>METASTORE.pentaho</name>
-      <attribute>
-        <key>Default Run Configuration</key>
-        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
-      </attribute>
-    </group>
-    <group>
-      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
-      <attribute>
-        <key>Pentaho local</key>
-        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"pentaho","value":"N"},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
-      </attribute>
-    </group>
-  </attributes>
+  <attributes />
 </job>
