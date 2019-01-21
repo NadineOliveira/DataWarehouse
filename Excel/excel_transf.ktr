@@ -561,15 +561,15 @@
     <concat_errors>N</concat_errors>
     <concat_separator>|</concat_separator>
     <validator_field>
-      <name>nome cliente</name>
+      <name>id cliente</name>
       <validation_name>valida_nome_cliente</validation_name>
       <max_length/>
-      <min_length>1</min_length>
+      <min_length/>
       <null_allowed>N</null_allowed>
       <only_null_allowed>N</only_null_allowed>
       <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>String</data_type>
-      <data_type_verified>N</data_type_verified>
+      <data_type>Integer</data_type>
+      <data_type_verified>Y</data_type_verified>
       <conversion_mask/>
       <decimal_symbol/>
       <grouping_symbol/>
@@ -581,8 +581,8 @@
       <end_string_not_allowed/>
       <regular_expression/>
       <regular_expression_not_allowed/>
-      <error_code/>
-      <error_description/>
+      <error_code>501</error_code>
+      <error_description>cliente não tem id</error_description>
       <is_sourcing_values>N</is_sourcing_values>
       <sourcing_step/>
       <sourcing_field/>
@@ -637,6 +637,18 @@
     </file>
     <fields>
       <field>
+        <name>id cliente</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>nome cliente</name>
         <type>String</type>
         <length>-1</length>
@@ -687,6 +699,18 @@
       <field>
         <name>estatuto</name>
         <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>telefone</name>
+        <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
