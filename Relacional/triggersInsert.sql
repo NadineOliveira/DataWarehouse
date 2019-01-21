@@ -5,11 +5,13 @@ CREATE TRIGGER trigger_insert_audcliente
 AFTER INSERT ON `jonas discos`.cliente
 FOR EACH ROW
 	BEGIN
+    DECLARE idc INT;
     DECLARE nm,em,lc VARCHAR(128);
     DECLARE op VARCHAR(10);
     DECLARE nd INT;
     DECLARE est ENUM('NORMAL','GOLDEN','PLATINUM');
 	SET op = 'INSERT',
+		idc = new.id,
 		nm = new.nome,
         nd = new.nr_discos,
         est = new.estatuto;
@@ -19,8 +21,8 @@ FOR EACH ROW
         IF(new.localidade is null) THEN SET lc = "N/A";
         ELSE SET lc = new.localidade;
         END IF;
-	INSERT INTO `jonas discos`.audcliente(nome,email,localidade,nr_discos,estatuto,operation)
-									values(nm,em,lc,nd,est,op);
+	INSERT INTO `jonas discos`.audcliente(id,nome,email,localidade,nr_discos,estatuto,operation)
+									values(idc,nm,em,lc,nd,est,op);
 	END$$
 DELIMITER ;
 
@@ -30,14 +32,15 @@ CREATE TRIGGER trigger_insert_audcompra
 AFTER INSERT ON `jonas discos`.compra
 FOR EACH ROW
 	BEGIN
+    DECLARE idc INT;
     DECLARE dt DATE;
     DECLARE ct FLOAT;
     DECLARE op VARCHAR(10);
 	SET op = 'INSERT',
 		ct = new.custo_total,
         dt = new.data_compra;
-	INSERT INTO `jonas discos`.audcompra(data_compra,custo_total,operation)
-									values(dt,ct,op);
+	INSERT INTO `jonas discos`.audcompra(id,data_compra,custo_total,operation)
+									values(idc,dt,ct,op);
 	END$$
 DELIMITER ;
 
@@ -47,6 +50,7 @@ CREATE TRIGGER trigger_insert_auddisco
 AFTER INSERT ON `jonas discos`.disco
 FOR EACH ROW
 	BEGIN
+    DECLARE idD INT;
     DECLARE tt VARCHAR(128);
     DECLARE tp ENUM('EP','LP','SINGLE','MAXI','N/A');
     DECLARE pp,cp FLOAT;
@@ -54,6 +58,7 @@ FOR EACH ROW
     DECLARE dt DATE;
 	SET op = 'INSERT',
 		tt = new.titulo,
+        idD = new.id,
         pp = new.pvp;
         IF(new.tipo is null) THEN SET tp = 'N/A';
         ELSE SET tp = new.tipo;
@@ -63,8 +68,8 @@ FOR EACH ROW
         END IF;
 	SET dt = (SELECT C.data_compra FROM `jonas discos`.compra AS C
 				WHERE C.id = new.compra);
-	INSERT INTO `jonas discos`.auddisco(titulo,tipo,pvp,compra_preco,operation,data_compra)
-								values(tt,tp,pp,cp,op,dt);
+	INSERT INTO `jonas discos`.auddisco(id,titulo,tipo,pvp,compra_preco,operation,data_compra)
+								values(idD,tt,tp,pp,cp,op,dt);
 	END$$
 DELIMITER ;
 
@@ -74,12 +79,14 @@ CREATE TRIGGER trigger_insert_audloja
 AFTER INSERT ON `jonas discos`.loja
 FOR EACH ROW
 	BEGIN
+    DECLARE idL INT;
     DECLARE lc VARCHAR(128);
     DECLARE op VARCHAR(10);
 	SET op = 'INSERT',
+		idL = new.id,
 		lc = new.localidade;
         
-	INSERT INTO `jonas discos`.audloja(localidade,operation) values(lc,op);
+	INSERT INTO `jonas discos`.audloja(id,localidade,operation) values(idL,lc,op);
 	END$$
 DELIMITER ;
 
