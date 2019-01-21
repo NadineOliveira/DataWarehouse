@@ -19,7 +19,8 @@ FOR EACH ROW
         IF(new.localidade is null) THEN SET lc = "N/A";
         ELSE SET lc = new.localidade;
         END IF;
-	INSERT INTO `jonas discos`.audcliente values(nm,em,lc,nd,est,op);
+	INSERT INTO `jonas discos`.audcliente(nome,email,localidade,nr_discos,estatuto,operation)
+									values(nm,em,lc,nd,est,op);
 	END$$
 DELIMITER ;
 
@@ -35,7 +36,8 @@ FOR EACH ROW
 	SET op = 'INSERT',
 		ct = new.custo_total,
         dt = new.data_compra;
-	INSERT INTO `jonas discos`.audcompra values(dt,ct,op);
+	INSERT INTO `jonas discos`.audcompra(data_compra,custo_total,operation)
+									values(dt,ct,op);
 	END$$
 DELIMITER ;
 
@@ -46,40 +48,38 @@ AFTER INSERT ON `jonas discos`.disco
 FOR EACH ROW
 	BEGIN
     DECLARE tt VARCHAR(128);
-    DECLARE tp ENUM('EP','LP','SINGLE','MAXI');
+    DECLARE tp ENUM('EP','LP','SINGLE','MAXI','N/A');
     DECLARE pp,cp FLOAT;
     DECLARE op VARCHAR(10);
+    DECLARE dt DATE;
 	SET op = 'INSERT',
 		tt = new.titulo,
         pp = new.pvp;
-        IF(new.tipo is null) THEN SET tp = "N/A";
+        IF(new.tipo is null) THEN SET tp = 'N/A';
         ELSE SET tp = new.tipo;
         END IF;
-        IF(new.compra_preco is null) THEN SET cp = "N/A";
+        IF(new.compra_preco is null) THEN SET cp = -1.0;
         ELSE SET cp = new.compra_preco;
         END IF;
-	INSERT INTO `jonas discos`.auddisco values(tt,tp,pp,cp,op);
+	SET dt = (SELECT C.data_compra FROM `jonas discos`.compra AS C
+				WHERE C.id = new.compra);
+	INSERT INTO `jonas discos`.auddisco(titulo,tipo,pvp,compra_preco,operation,data_compra)
+								values(tt,tp,pp,cp,op,dt);
 	END$$
 DELIMITER ;
 
 DROP TRIGGER IF EXISTS trigger_insert_audloja;
 DELIMITER $$
 CREATE TRIGGER trigger_insert_audloja
-AFTER INSERT ON `jonas discos`.compra
+AFTER INSERT ON `jonas discos`.loja
 FOR EACH ROW
 	BEGIN
     DECLARE lc VARCHAR(128);
-    DECLARE dc DATE;
     DECLARE op VARCHAR(10);
 	SET op = 'INSERT',
-		dc = new.data_compra;
-		IF(new.loja is null) THEN SET lc = "N/A";
-        ELSE SET
-		lc = (SELECT L.localidade FROM `jonas discos`.loja AS L
-				WHERE L.id = new.loja);
-		END IF;
+		lc = new.localidade;
         
-	INSERT INTO `jonas discos`.audloja values(dc,lc,op);
+	INSERT INTO `jonas discos`.audloja(localidade,operation) values(lc,op);
 	END$$
 DELIMITER ;
 
@@ -95,7 +95,8 @@ FOR EACH ROW
 	SET op = 'INSERT',
 		ar = new.artista,
 		idD = new.disco;
-	INSERT INTO `jonas discos`.auddisco_artista values(ar,idD,op);
+	INSERT INTO `jonas discos`.auddisco_artista(artista,audDisco_id,operation)
+											values(ar,idD,op);
 	END$$
 DELIMITER ;
 
@@ -111,6 +112,7 @@ FOR EACH ROW
 	SET op = 'INSERT',
 		ge = new.genero,
 		idD = new.disco;
-	INSERT INTO `jonas discos`.auddisco_genero values(ge,idD,op);
+	INSERT INTO `jonas discos`.auddisco_genero(genero,audDisco_id,operation)
+										values(ge,idD,op);
 	END$$
 DELIMITER ;
