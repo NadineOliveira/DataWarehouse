@@ -491,6 +491,11 @@
     </attributes>
   </connection>
   <order>
+    <hop>
+      <from>Extrair preFactVendas</from>
+      <to>Carregar factVendas</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Carregar factVendas</name>

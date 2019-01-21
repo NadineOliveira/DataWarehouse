@@ -581,6 +581,11 @@
       <to>Carregar DimGenero</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Carregar DimDisco</from>
+      <to>Block this step until steps finish</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Block this step until steps finish</name>
@@ -1110,10 +1115,6 @@ FROM dimLoja
   <attributes>
     <group>
       <name>explorerState</name>
-      <attribute>
-        <key>Carregar DimLoja</key>
-        <value/>
-      </attribute>
     </group>
   </attributes>
 </transformation>
