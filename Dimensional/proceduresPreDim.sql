@@ -4,10 +4,12 @@ DROP procedure IF EXISTS `sp_insert_disco`;
 DELIMITER $$
 USE `dw-ar`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_disco`(p_id_disco_source INT, p_source_id VARCHAR(45),p_titulo VARCHAR(128),
-									p_compra_preco FLOAT, p_tipo VARCHAR(128), p_pvp FLOAT)
+									p_compra_preco FLOAT, p_tipo VARCHAR(128), p_pvp FLOAT,p_data_compra DATE)
 BEGIN
-INSERT INTO lk_disco(id_disco_source,source_id) VALUES (p_id_disco_source,p_source_id);
-INSERT INTO `dw-ar`.dimdisco(titulo,compra_preco,tipo,pvp) values(p_titulo,p_compra_preco,p_tipo,p_pvp);
+INSERT INTO lk_disco(id_disco_source,source_id,data_compra) VALUES (p_id_disco_source,p_source_id,p_data_compra);
+IF (p_data_compra is not null) THEN
+	INSERT INTO `dw-ar`.dimdisco(titulo,compra_preco,tipo,pvp,data_compra) values(p_titulo,p_compra_preco,p_tipo,p_pvp,p_data_compra);
+END IF;
 END$$
 
 DELIMITER ;
@@ -44,27 +46,25 @@ DROP procedure IF EXISTS `sp_insert_loja`;
 DELIMITER $$
 USE `dw-ar`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_loja`(p_idpre_dim_loja INT, p_source_id VARCHAR(45),
-p_localidade VARCHAR(45),p_data_compra DATETIME)
+p_localidade VARCHAR(45))
 BEGIN
 DECLARE id, existe INT;
 SET id = (SELECT LK.id FROM lk_loja AS LK
-			WHERE LK.data_compra = p_data_compra
-            AND p_source_id like LK.source_id
+			WHERE p_source_id like LK.source_id
             AND p_localidade like LK.localidade);
 
 IF(id is null) THEN
 START TRANSACTION;
-INSERT INTO lk_loja(id_loja_source,source_id,data_compra,localidade) VALUES(p_idpre_dim_loja,p_source_id,p_data_compra,p_localidade);
+INSERT INTO lk_loja(id_loja_source,source_id,localidade) VALUES(p_idpre_dim_loja,p_source_id,p_localidade);
 SET id = (SELECT LK.id FROM lk_loja AS LK 
-			WHERE LK.data_compra = p_data_compra
-            AND p_source_id like LK.source_id
-            AND p_localidade like p_localidade);
+			WHERE p_source_id like LK.source_id
+            AND p_localidade like LK.localidade);
 COMMIT;
 END IF;
 
 SET existe = (SELECT iddimLoja FROM dimloja WHERE iddimLoja = id);
 IF (existe is null) THEN
-INSERT INTO dimloja VALUES(id,p_localidade,p_data_compra);
+INSERT INTO dimloja VALUES(id,p_localidade);
 END IF;
 END$$
 
