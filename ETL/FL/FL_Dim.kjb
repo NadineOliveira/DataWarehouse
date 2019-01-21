@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>FL_Dim</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2019/01/18 12:25:50.644</created_date>
@@ -14,12 +14,12 @@
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection />
-    <schema />
-    <table />
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -127,10 +127,10 @@
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -218,10 +218,10 @@
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -283,14 +283,81 @@
       <name>ROOT_CHANNEL_ID</name>
     </field>
   </channel-log-table>
+  <checkpoint-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <max_nr_retries/>
+    <run_retry_period/>
+    <namespace_parameter/>
+    <save_parameters/>
+    <save_result_rows/>
+    <save_result_files/>
+    <field>
+      <id>ID_JOB_RUN</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB_RUN</name>
+    </field>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>NAMESPACE</id>
+      <enabled>Y</enabled>
+      <name>NAMESPACE</name>
+    </field>
+    <field>
+      <id>CHECKPOINT_NAME</id>
+      <enabled>Y</enabled>
+      <name>CHECKPOINT_NAME</name>
+    </field>
+    <field>
+      <id>CHECKPOINT_COPYNR</id>
+      <enabled>Y</enabled>
+      <name>CHECKPOINT_COPYNR</name>
+    </field>
+    <field>
+      <id>ATTEMPT_NR</id>
+      <enabled>Y</enabled>
+      <name>ATTEMPT_NR</name>
+    </field>
+    <field>
+      <id>JOB_RUN_START_DATE</id>
+      <enabled>Y</enabled>
+      <name>JOB_RUN_START_DATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>RESULT_XML</id>
+      <enabled>Y</enabled>
+      <name>RESULT_XML</name>
+    </field>
+    <field>
+      <id>PARAMETER_XML</id>
+      <enabled>Y</enabled>
+      <name>PARAMETER_XML</name>
+    </field>
+  </checkpoint-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
-      <attributes />
+      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -306,30 +373,30 @@
       <nr>0</nr>
       <xloc>160</xloc>
       <yloc>208</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Pre</name>
-      <description />
+      <description/>
       <type>TRANS</type>
-      <attributes />
+      <attributes/>
       <specification_method>filename</specification_method>
-      <trans_object_id />
-      <filename>${Internal.Job.Filename.Directory}/FL_Dimensoes_Pre.ktr</filename>
-      <transname />
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/FL_Dim_Pre.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -342,32 +409,32 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>304</xloc>
+      <xloc>288</xloc>
       <yloc>208</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Meio</name>
-      <description />
+      <description/>
       <type>TRANS</type>
-      <attributes />
+      <attributes/>
       <specification_method>filename</specification_method>
-      <trans_object_id />
-      <filename>${Internal.Job.Filename.Directory}/FL_Dimensoes_Mei.ktr</filename>
-      <transname />
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/FL_Dim_Meio.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -380,32 +447,32 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>464</xloc>
+      <xloc>560</xloc>
       <yloc>208</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
-      <name>Pos</name>
-      <description />
+      <name>CarregarDatas</name>
+      <description/>
       <type>TRANS</type>
-      <attributes />
+      <attributes/>
       <specification_method>filename</specification_method>
-      <trans_object_id />
-      <filename>${Internal.Entry.Current.Directory}/FL_Dim_Pos.ktr</filename>
-      <transname />
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/FL_Dim_CarregarDatas.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -418,9 +485,9 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>624</xloc>
+      <xloc>400</xloc>
       <yloc>208</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
   </entries>
   <hops>
@@ -435,7 +502,7 @@
     </hop>
     <hop>
       <from>Pre</from>
-      <to>Meio</to>
+      <to>CarregarDatas</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -443,8 +510,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Meio</from>
-      <to>Pos</to>
+      <from>CarregarDatas</from>
+      <to>Meio</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

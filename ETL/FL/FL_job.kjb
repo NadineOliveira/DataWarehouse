@@ -66,61 +66,6 @@
       </attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>Jonas Discos</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>Jonas Discos</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -518,8 +463,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>240</yloc>
+      <xloc>224</xloc>
+      <yloc>320</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -555,7 +500,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>368</xloc>
+      <xloc>288</xloc>
       <yloc>240</yloc>
       <attributes_kjc/>
     </entry>
@@ -611,30 +556,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>592</xloc>
-      <yloc>240</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Clear AuditTables</name>
-      <description/>
-      <type>SQL</type>
-      <attributes/>
-      <sql>delete from audCompra;
-delete from audCliente;
-delete from audLoja;
-delete from audDisco;
-delete from audDisco_Artista;
-delete from audDisco_Genero;</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>Jonas Discos</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>240</yloc>
+      <yloc>320</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -644,7 +566,7 @@ delete from audDisco_Genero;</sql>
       <attributes/>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/ETL/AR_DW/AR_DW_job.kjb</filename>
+      <filename>C:\Users\nadin\Documents\DW\data_warehouse\ETL\AR_DW\AR_DW_job.kjb</filename>
       <jobname/>
       <directory/>
       <arg_from_previous>N</arg_from_previous>
@@ -677,24 +599,6 @@ delete from audDisco_Genero;</sql>
   </entries>
   <hops>
     <hop>
-      <from>Start</from>
-      <to>Check Empty</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Check Empty</from>
-      <to>Dimensoes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Dimensoes</from>
       <to>TabelaFactos</to>
       <from_nr>0</from_nr>
@@ -704,25 +608,16 @@ delete from audDisco_Genero;</sql>
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>Start</from>
+      <to>Dimensoes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
       <from>TabelaFactos</from>
-      <to>Set LastLoad</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set LastLoad</from>
-      <to>Clear AuditTables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Clear AuditTables</from>
       <to>Load DW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

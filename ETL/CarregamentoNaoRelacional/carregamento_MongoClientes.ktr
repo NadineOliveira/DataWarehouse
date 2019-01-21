@@ -702,7 +702,7 @@
     <hostname>localhost</hostname>
     <port>27017</port>
     <use_all_replica_members>N</use_all_replica_members>
-    <db_name>dwMongo</db_name>
+    <db_name>jonas_discos</db_name>
     <fields_name/>
     <collection>cliente</collection>
     <json_field_name>json</json_field_name>

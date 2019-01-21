@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>AR_DW_Dimensoes_Insert</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -443,10 +443,10 @@
     <database>DW-AR</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -498,10 +498,10 @@
     <database>DW-dw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -548,22 +548,17 @@
   <order>
     <hop>
       <from>Extrair DimLoja</from>
-      <to>Carregar DimLocal</to>
+      <to>Carregar DimLoja</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Extrair DimDisco</from>
-      <to>Carregar DimProduto</to>
+      <to>Carregar DimDisco</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Extrair DimCliente</from>
       <to>Carregar DimCliente</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Carregar DimProduto</from>
-      <to>Block this step until steps finish</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -577,35 +572,39 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Extrair DimGenero</from>
-      <to>Carregar DimGenero</to>
+      <from>Extrair DimArtista</from>
+      <to>Carregar DimArtista</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Extrair DimArtista</from>
-      <to>Carregar DimArtista</to>
+      <from>Extrair DimGenero</from>
+      <to>Carregar DimGenero</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
     <name>Block this step until steps finish</name>
     <type>BlockUntilStepsFinish</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <steps>
       <step>
-        <name>dimDisco</name>
+        <name>Carregar DimDisco</name>
+        <CopyNr>0</CopyNr>
+      </step>
+      <step>
+        <name>Carregar DimDisco</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -621,35 +620,47 @@
   <step>
     <name>Carregar DimArtista</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-dw</connection>
-    <schema />
+    <schema/>
     <table>dimArtista</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
+    <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
+      <field>
+        <column_name>iddimArtista</column_name>
+        <stream_name>iddimArtista</stream_name>
+      </field>
+      <field>
+        <column_name>nome</column_name>
+        <stream_name>nome</stream_name>
+      </field>
+      <field>
+        <column_name>discoFK</column_name>
+        <stream_name>discoFK</stream_name>
+      </field>
     </fields>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -665,16 +676,16 @@
   <step>
     <name>Carregar DimCliente</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-dw</connection>
-    <schema />
+    <schema/>
     <table>dimCliente</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -682,42 +693,42 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
       <field>
-        <column_name>id</column_name>
-        <stream_name>id</stream_name>
+        <column_name>idDimCliente</column_name>
+        <stream_name>idDimCliente</stream_name>
       </field>
       <field>
         <column_name>email</column_name>
         <stream_name>email</stream_name>
       </field>
       <field>
-        <column_name>nome</column_name>
-        <stream_name>nome</stream_name>
+        <column_name>Nome</column_name>
+        <stream_name>Nome</stream_name>
       </field>
       <field>
-        <column_name>profissao</column_name>
-        <stream_name>profissao</stream_name>
+        <column_name>Localidade</column_name>
+        <stream_name>Localidade</stream_name>
       </field>
       <field>
-        <column_name>genero</column_name>
-        <stream_name>genero</stream_name>
+        <column_name>Estatuto</column_name>
+        <stream_name>Estatuto</stream_name>
       </field>
       <field>
-        <column_name>data_nascimento</column_name>
-        <stream_name>data_nascimento</stream_name>
+        <column_name>nr_discos</column_name>
+        <stream_name>nr_discos</stream_name>
       </field>
     </fields>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -731,134 +742,18 @@
     </GUI>
   </step>
   <step>
-    <name>Carregar DimGenero</name>
+    <name>Carregar DimDisco</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-dw</connection>
-    <schema />
-    <table>dimGenero</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>624</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Carregar DimLocal</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW-dw</connection>
-    <schema />
-    <table>dimLoja</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-      <field>
-        <column_name>id</column_name>
-        <stream_name>id</stream_name>
-      </field>
-      <field>
-        <column_name>cod_postal</column_name>
-        <stream_name>cod_postal</stream_name>
-      </field>
-      <field>
-        <column_name>freguesia</column_name>
-        <stream_name>freguesia</stream_name>
-      </field>
-      <field>
-        <column_name>rua</column_name>
-        <stream_name>rua</stream_name>
-      </field>
-      <field>
-        <column_name>cidade</column_name>
-        <stream_name>cidade</stream_name>
-      </field>
-      <field>
-        <column_name>distrito</column_name>
-        <stream_name>distrito</stream_name>
-      </field>
-      <field>
-        <column_name>pais</column_name>
-        <stream_name>pais</stream_name>
-      </field>
-    </fields>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Carregar DimProduto</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>DW-dw</connection>
-    <schema />
+    <schema/>
     <table>dimDisco</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -866,38 +761,38 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
       <field>
-        <column_name>id</column_name>
-        <stream_name>id</stream_name>
+        <column_name>idDimDisco</column_name>
+        <stream_name>idDimDisco</stream_name>
       </field>
       <field>
-        <column_name>nome</column_name>
-        <stream_name>nome</stream_name>
+        <column_name>titulo</column_name>
+        <stream_name>titulo</stream_name>
       </field>
       <field>
-        <column_name>pais</column_name>
-        <stream_name>pais</stream_name>
+        <column_name>compra_preco</column_name>
+        <stream_name>compra_preco</stream_name>
       </field>
       <field>
-        <column_name>precoA</column_name>
-        <stream_name>precoA</stream_name>
+        <column_name>tipo</column_name>
+        <stream_name>tipo</stream_name>
       </field>
       <field>
-        <column_name>precoV</column_name>
-        <stream_name>precoV</stream_name>
+        <column_name>pvp</column_name>
+        <stream_name>pvp</stream_name>
       </field>
     </fields>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -911,30 +806,138 @@
     </GUI>
   </step>
   <step>
-    <name>Extrair DimArtista</name>
-    <type>TableInput</type>
-    <description />
+    <name>Carregar DimGenero</name>
+    <type>TableOutput</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>DW-dw</connection>
+    <schema/>
+    <table>dimGenero</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>iddimGenero</column_name>
+        <stream_name>iddimGenero</stream_name>
+      </field>
+      <field>
+        <column_name>genero</column_name>
+        <stream_name>genero</stream_name>
+      </field>
+      <field>
+        <column_name>discoFK</column_name>
+        <stream_name>discoFK</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carregar DimLoja</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DW-dw</connection>
+    <schema/>
+    <table>dimLoja</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>iddimLoja</column_name>
+        <stream_name>iddimLoja</stream_name>
+      </field>
+      <field>
+        <column_name>Localidade</column_name>
+        <stream_name>Localidade</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Extrair DimArtista</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
   iddimArtista
 , nome
-, artistaFK
+, discoFK
 FROM dimArtista
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -950,13 +953,13 @@ FROM dimArtista
   <step>
     <name>Extrair DimCliente</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
@@ -969,12 +972,12 @@ FROM dimArtista
 FROM dimCliente
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -990,13 +993,13 @@ FROM dimCliente
   <step>
     <name>Extrair DimDisco</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
@@ -1008,12 +1011,12 @@ FROM dimCliente
 FROM dimDisco
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1029,13 +1032,13 @@ FROM dimDisco
   <step>
     <name>Extrair DimGenero</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
@@ -1045,12 +1048,12 @@ FROM dimDisco
 FROM dimGenero
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1066,28 +1069,27 @@ FROM dimGenero
   <step>
     <name>Extrair DimLoja</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>DW-AR</connection>
     <sql>SELECT
   iddimLoja
 , Localidade
-, data_Compra
 FROM dimLoja
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1105,5 +1107,13 @@ FROM dimLoja
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes />
+  <attributes>
+    <group>
+      <name>explorerState</name>
+      <attribute>
+        <key>Carregar DimLoja</key>
+        <value/>
+      </attribute>
+    </group>
+  </attributes>
 </transformation>
