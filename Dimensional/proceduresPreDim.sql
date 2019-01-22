@@ -7,8 +7,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_disco`(p_id_disco_source 
 									p_compra_preco FLOAT, p_tipo VARCHAR(128), p_pvp FLOAT,p_data_compra DATE)
 BEGIN
 INSERT INTO lk_disco(id_disco_source,source_id,data_compra) VALUES (p_id_disco_source,p_source_id,p_data_compra);
+IF(p_tipo is null) THEN SET @tp = 'N/A';
+ELSE SET @tp = p_tipo;
+END IF;
 IF (p_data_compra is not null) THEN
-	INSERT INTO `dw-ar`.dimdisco(titulo,compra_preco,tipo,pvp,data_compra) values(p_titulo,p_compra_preco,p_tipo,p_pvp,p_data_compra);
+	INSERT INTO `dw-ar`.dimdisco(titulo,compra_preco,tipo,pvp,data_compra) values(p_titulo,p_compra_preco,@tp,p_pvp,p_data_compra);
 END IF;
 END$$
 
