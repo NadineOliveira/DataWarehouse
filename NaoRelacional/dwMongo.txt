@@ -1,4 +1,4 @@
-db.loja.insert(
+﻿db.loja.insert(
 	{
 		total_fact: "5000",
 		total_gasto: "2000",
@@ -15,9 +15,11 @@ db.disco.insert([
 					duracao: "1:03:56",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "34.90",
+					pvp: "34,90",
 					Disco_Artista: ["Pink Floyd"],
 					Disco_Genero: ["Rock Classico"],
+					discoId: "1",
+					compra_preco: "30",
 					compra: "7"
 				},
 				{
@@ -26,9 +28,10 @@ db.disco.insert([
 					duracao: "1:03:56",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "34.90",
+					pvp: "34,90",
 					Disco_Artista: ["Pink Floyd"],
-					Disco_Genero: ["Rock Classico"]
+					Disco_Genero: ["Rock Classico"],
+					discoId: "2"
 				},
 				{
 					titulo: "Another Brick in the Wall",
@@ -36,9 +39,10 @@ db.disco.insert([
 					duracao: "1:03:56",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "34.90",
+					pvp: "34,90",
 					Disco_Artista: ["Pink Floyd"],
-					Disco_Genero: ["Rock Classico"]
+					Disco_Genero: ["Rock Classico"],
+					discoId: "3"
 				},
 				{
 					titulo: "Greatest Hits",
@@ -49,7 +53,9 @@ db.disco.insert([
 					pvp: "25",
 					Disco_Artista: ["Queen"],
 					Disco_Genero: ["Pop Rock"],
-					compra: "6"
+					compra: "6",
+					compra_preco: "25",
+					discoId: "4"
 				},
 				{
 					titulo: "Greatest Hits",
@@ -59,7 +65,8 @@ db.disco.insert([
 					tipo: "LP",
 					pvp: "25",
 					Disco_Artista: ["Queen"],
-					Disco_Genero: ["Pop Rock"]
+					Disco_Genero: ["Pop Rock"],
+					discoId: "5"
 				},
 				{
 					titulo: "The Darkside of the Moon",
@@ -67,10 +74,12 @@ db.disco.insert([
 					duracao: "1:02:20",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "99.90",
+					pvp: "99,90",
 					Disco_Artista: ["Pink Floyd"],
 					Disco_Genero: ["Hard Rock"],
-					compra: "5"
+					compra_preco: "100",
+					compra: "5",
+					discoId: "6"
 				},
 				{
 					titulo: "The Darkside of the Moon",
@@ -78,10 +87,12 @@ db.disco.insert([
 					duracao: "1:02:20",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "99.90",
+					pvp: "99,90",
 					Disco_Artista: ["Pink Floyd"],
 					Disco_Genero: ["Hard Rock"],
-					compra: "4"
+					compra: "4",
+					compra_preco: "100",
+					discoId: "7"
 				},
 				{
 					titulo: "Meddle",
@@ -89,10 +100,12 @@ db.disco.insert([
 					duracao: "1:20:00",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "34.90",
+					pvp: "34,90",
 					Disco_Artista: ["Elvis Presley", "Pink Floyd"],
 					Disco_Genero: ["Jazz", "Jazz Fusion"],
-					compra: "1"
+					compra: "1",
+					compra_preco: "35",
+					discoId: "8"
 				},
 				{
 					titulo: "Obscured by the Clouds",
@@ -100,31 +113,12 @@ db.disco.insert([
 					duracao: "00:59:56",
 					rpm: "33",
 					tipo: "LP",
-					pvp: "34.90",
+					pvp: "34,90",
 					Disco_Artista: ["Pink Floyd"],
 					Disco_Genero: ["Rock Progressivo"],
-					compra: "1"
-				},
-				{
-					titulo: "Lebre",
-					nr_faixas: "11",
-					duracao: "00:44:33",
-					rpm: "33",
-					tipo: "LP",
-					pvp: "20",
-					Disco_Artista: ["Diabo na Cruz"],
-					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"]
-				},
-				{
-					titulo: "Lebre",
-					nr_faixas: "11",
-					duracao: "00:44:33",
-					rpm: "33",
-					tipo: "LP",
-					pvp: "20",
-					Disco_Artista: ["Diabo na Cruz"],
-					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
-					compra: "2"
+					compra: "1",
+					compra_preco: "35",
+					discoId: "9"
 				},
 				{
 					titulo: "Lebre",
@@ -135,7 +129,33 @@ db.disco.insert([
 					pvp: "20",
 					Disco_Artista: ["Diabo na Cruz"],
 					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
-					compra: "3"
+					discoId: "10"
+				},
+				{
+					titulo: "Lebre",
+					nr_faixas: "11",
+					duracao: "00:44:33",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "20",
+					Disco_Artista: ["Diabo na Cruz"],
+					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
+					compra: "2",
+					compra_preco: "20",
+					discoId: "11"
+				},
+				{
+					titulo: "Lebre",
+					nr_faixas: "11",
+					duracao: "00:44:33",
+					rpm: "33",
+					tipo: "LP",
+					pvp: "20",
+					Disco_Artista: ["Diabo na Cruz"],
+					Disco_Genero: ["Rock", "Pop", "Musica Tradicional Portuguesa"],
+					compra: "3",
+					compra_preco: "20",
+					discoId: "12",
 				}
 			]);
 			
@@ -149,6 +169,7 @@ db.clientes.insert([
 					nr_discos: "1",
 					estatuto: "NORMAL",
 					telefone: ["919191919"],
+					clienteId: "1",
 					Compra: [
 								{
 								data_compra: "2011-11-11",
@@ -181,6 +202,7 @@ db.clientes.insert([
 					nr_discos: "55",
 					estatuto: "NORMAL",
 					telefone: ["923684764", "915915915"],
+					clienteId: "2",
 				},
 				{
 					nome: "Soraia Lopes",
@@ -190,6 +212,7 @@ db.clientes.insert([
 					localidade: "Porto",
 					nr_discos: "3",
 					estatuto: "NORMAL",
+					clienteId: "3",
 					Compra: [
 								{
 								data_compra: "2008-03-02",
@@ -204,9 +227,10 @@ db.clientes.insert([
 					cod_postal: "4800-300",
 					rua: "Rua Central",
 					localidade: "Guimarães",
-					nr_discos: "1",
+					nr_discos: "2",
 					estatuto: "NORMAL",
 					telefone: ["917008316"],
+					clienteId: "4",
 					Compra: [
 								{
 								data_compra: "2015-05-05",
