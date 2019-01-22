@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>FL_PreDim</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <name>FL_Dim_Inicial</name>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -437,17 +437,17 @@
   <notepads>
   </notepads>
   <connection>
-    <name>MY-SQL</name>
+    <name>DW-AR</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>jonas discos</database>
+    <database>dw-ar</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 416c6670dbfcc0fc5296c7d5fd4bfd248ccafe8f</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -492,17 +492,17 @@
     </attributes>
   </connection>
   <connection>
-    <name>My-SQL-AR</name>
+    <name>jonas_discos</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>dw-ar</database>
+    <database>jonas discos</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 416c6670dbfcc0fc5296c7d5fd4bfd248ccafe8f</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -821,30 +821,30 @@
   <step>
     <name>Add constants</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>hora</name>
         <type>String</type>
         <format>HH:mm:ss.SSS</format>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency />
+        <decimal />
+        <group />
         <nullif>00:00:00.000</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -860,22 +860,22 @@
   <step>
     <name>Add constants 2</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>excel</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -884,10 +884,10 @@
       <field>
         <name>nr_discos</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -896,18 +896,18 @@
       <field>
         <name>email</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>NA</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -923,30 +923,30 @@
   <step>
     <name>Add source_id_DiscoMongo</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>mongo</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -962,22 +962,22 @@
   <step>
     <name>Add source_id_LojaMongo</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>mongo</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -986,18 +986,18 @@
       <field>
         <name>id</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>2</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1013,30 +1013,30 @@
   <step>
     <name>Add_operation 2 2 2</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>sql</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1052,30 +1052,30 @@
   <step>
     <name>Add_operation 2 2 3</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>sql</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1091,30 +1091,30 @@
   <step>
     <name>Add_source_id_ClienteExcel</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>excel</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1130,30 +1130,30 @@
   <step>
     <name>Add_source_id_ClienteMongo</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>mongo</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1169,30 +1169,30 @@
   <step>
     <name>Add_source_id_ClienteSQL</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>sql</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1208,30 +1208,30 @@
   <step>
     <name>Add_source_id_DiscoSQL</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>sql</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1247,30 +1247,30 @@
   <step>
     <name>Add_source_id_LojaSQL</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>source_id</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>sql</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1286,16 +1286,16 @@
   <step>
     <name>Atributos Cliente</name>
     <type>JsonInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1304,11 +1304,11 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <rownum_field/>
+    <rownum_field />
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
+      <name />
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1317,10 +1317,10 @@
         <name>nome</name>
         <path>nome</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1330,10 +1330,10 @@
         <name>email</name>
         <path>email</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1343,10 +1343,10 @@
         <name>cod_postal</name>
         <path>cod_postal</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1356,10 +1356,10 @@
         <name>rua</name>
         <path>rua</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1369,10 +1369,10 @@
         <name>localidade</name>
         <path>localidade</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1382,10 +1382,10 @@
         <name>nr_discos</name>
         <path>nr_discos</path>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1395,10 +1395,10 @@
         <name>estatuto</name>
         <path>estatuto</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1408,10 +1408,10 @@
         <name>telefone</name>
         <path>telefone</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1421,10 +1421,10 @@
         <name>compra</name>
         <path>Compra</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1434,10 +1434,10 @@
         <name>id</name>
         <path>clienteId</path>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1448,16 +1448,16 @@
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>json</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1473,16 +1473,16 @@
   <step>
     <name>Atributos Compra</name>
     <type>JsonInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1491,11 +1491,11 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <rownum_field/>
+    <rownum_field />
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
+      <name />
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1505,9 +1505,9 @@
         <path>$..data_compra</path>
         <type>String</type>
         <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1517,10 +1517,10 @@
         <name>custo_total</name>
         <path>$..custo_total</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1530,10 +1530,10 @@
         <name>idCompra</name>
         <path>$..idCompra</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1544,16 +1544,16 @@
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>json</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1569,16 +1569,16 @@
   <step>
     <name>Atributos Discos 2</name>
     <type>JsonInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1587,11 +1587,11 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <rownum_field/>
+    <rownum_field />
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
+      <name />
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1600,10 +1600,10 @@
         <name>titulo</name>
         <path>titulo</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1613,10 +1613,10 @@
         <name>nr_faixas</name>
         <path>nr_faixas</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1626,10 +1626,10 @@
         <name>duracao</name>
         <path>duracao</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1639,10 +1639,10 @@
         <name>rpm</name>
         <path>rpm</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1652,10 +1652,10 @@
         <name>tipo</name>
         <path>tipo</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1665,10 +1665,10 @@
         <name>pvp</name>
         <path>pvp</path>
         <type>Number</type>
-        <format/>
-        <currency/>
+        <format />
+        <currency />
         <decimal>,</decimal>
-        <group/>
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1678,10 +1678,10 @@
         <name>disco_artista</name>
         <path>Disco_Artista</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1691,10 +1691,10 @@
         <name>disco_genero</name>
         <path>Disco_Genero</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1704,10 +1704,10 @@
         <name>compra</name>
         <path>compra</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1717,10 +1717,10 @@
         <name>compra_preco</name>
         <path>compra_preco</path>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1730,10 +1730,10 @@
         <name>id</name>
         <path>discoId</path>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1744,16 +1744,16 @@
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>json</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1769,16 +1769,16 @@
   <step>
     <name>Atributos Loja</name>
     <type>JsonInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1787,11 +1787,11 @@
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
     <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <rownum_field/>
+    <rownum_field />
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
+      <name />
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1800,10 +1800,10 @@
         <name>total_fact</name>
         <path>total_fact</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1813,10 +1813,10 @@
         <name>total_gasto</name>
         <path>total_gasto</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1826,10 +1826,10 @@
         <name>rua</name>
         <path>rua</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1839,10 +1839,10 @@
         <name>cod_postal</name>
         <path>cod_postal</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1852,10 +1852,10 @@
         <name>localidade</name>
         <path>localidade</path>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1866,16 +1866,16 @@
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>json</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1891,13 +1891,13 @@
   <step>
     <name>Block this step until steps finish</name>
     <type>BlockUntilStepsFinish</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <steps>
       <step>
@@ -1905,8 +1905,8 @@
         <CopyNr>0</CopyNr>
       </step>
     </steps>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1922,23 +1922,23 @@
   <step>
     <name>Cap_dados</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>nome cliente</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1946,12 +1946,12 @@
       </field>
       <field>
         <in_stream_name>localidade</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1959,12 +1959,12 @@
       </field>
       <field>
         <in_stream_name>morada</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1972,20 +1972,20 @@
       </field>
       <field>
         <in_stream_name>estatuto</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>upper</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2001,31 +2001,31 @@
   <step>
     <name>Cap_nomes</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>localidade</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2041,31 +2041,31 @@
   <step>
     <name>Cap_nomesA</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>artista</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2081,23 +2081,23 @@
   <step>
     <name>Cap_nomesD</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>titulo</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -2105,20 +2105,20 @@
       </field>
       <field>
         <in_stream_name>tipo</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2134,31 +2134,31 @@
   <step>
     <name>Cap_nomesG</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>genero</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2174,23 +2174,23 @@
   <step>
     <name>Cap_nomes_Cli</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>nome</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -2198,12 +2198,12 @@
       </field>
       <field>
         <in_stream_name>localidade</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -2211,20 +2211,20 @@
       </field>
       <field>
         <in_stream_name>estatuto</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>yes</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2240,16 +2240,16 @@
   <step>
     <name>Carrega_Pre_Artista</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>My-SQL-AR</connection>
-    <schema/>
+    <connection>DW-AR</connection>
+    <schema />
     <table>pre_dim_artista</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2257,14 +2257,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>source_id</column_name>
@@ -2279,8 +2279,8 @@
         <stream_name>disco</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2296,16 +2296,16 @@
   <step>
     <name>Carrega_Pre_Cliente</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>My-SQL-AR</connection>
-    <schema/>
+    <connection>DW-AR</connection>
+    <schema />
     <table>pre_dim_cliente</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2313,14 +2313,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>nome</column_name>
@@ -2351,8 +2351,8 @@
         <stream_name>source_id</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2368,16 +2368,16 @@
   <step>
     <name>Carrega_Pre_Genero</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>My-SQL-AR</connection>
-    <schema/>
+    <connection>DW-AR</connection>
+    <schema />
     <table>pre_dim_genero</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2385,14 +2385,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>source_id</column_name>
@@ -2407,8 +2407,8 @@
         <stream_name>disco</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2424,16 +2424,16 @@
   <step>
     <name>Carrega_Pre_Loja</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>My-SQL-AR</connection>
-    <schema/>
+    <connection>DW-AR</connection>
+    <schema />
     <table>pre_dim_loja</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2441,14 +2441,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>idpre_dim_Loja</column_name>
@@ -2463,8 +2463,8 @@
         <stream_name>source_id</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2480,16 +2480,16 @@
   <step>
     <name>Carrega_Pre_disco</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>My-SQL-AR</connection>
-    <schema/>
+    <connection>DW-AR</connection>
+    <schema />
     <table>pre_dim_disco</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2497,14 +2497,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>id_disco_source</column_name>
@@ -2531,8 +2531,8 @@
         <stream_name>source_id</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2548,24 +2548,24 @@
   <step>
     <name>Cliente</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>MY-SQL</connection>
+    <connection>jonas_discos</connection>
     <sql>SELECT nome, email, localidade, estatuto, nr_discos,id
 	FROM `jonas discos`.cliente</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2581,26 +2581,26 @@
   <step>
     <name>Concat fields</name>
     <type>ConcatFields</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <separator> </separator>
-    <enclosure/>
+    <enclosure />
     <enclosure_forced>N</enclosure_forced>
     <enclosure_fix_disabled>N</enclosure_fix_disabled>
     <header>N</header>
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
-    <endedLine/>
+    <encoding />
+    <endedLine />
     <fileNameInField>N</fileNameInField>
-    <fileNameField/>
+    <fileNameField />
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
@@ -2613,7 +2613,7 @@
       <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
+      <date_time_format />
       <add_to_result_filenames>Y</add_to_result_filenames>
       <pad>N</pad>
       <fast_dump>N</fast_dump>
@@ -2624,10 +2624,10 @@
         <name>data_compra</name>
         <type>String</type>
         <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2636,10 +2636,10 @@
         <name>hora</name>
         <type>String</type>
         <format>HH:mm:ss.SSS</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2650,8 +2650,8 @@
       <targetFieldLength>10</targetFieldLength>
       <removeSelectedFields>N</removeSelectedFields>
     </ConcatFields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2667,13 +2667,13 @@
   <step>
     <name>Data validator</name>
     <type>Validator</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <validate_all>N</validate_all>
     <concat_errors>N</concat_errors>
@@ -2681,33 +2681,33 @@
     <validator_field>
       <name>id cliente</name>
       <validation_name>valida_nome_cliente</validation_name>
-      <max_length/>
-      <min_length/>
+      <max_length />
+      <min_length />
       <null_allowed>N</null_allowed>
       <only_null_allowed>N</only_null_allowed>
       <only_numeric_allowed>N</only_numeric_allowed>
       <data_type>Integer</data_type>
       <data_type_verified>Y</data_type_verified>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <max_value/>
-      <min_value/>
-      <start_string/>
-      <end_string/>
-      <start_string_not_allowed/>
-      <end_string_not_allowed/>
-      <regular_expression/>
-      <regular_expression_not_allowed/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
       <error_code>501</error_code>
       <error_description>cliente não tem id</error_description>
       <is_sourcing_values>N</is_sourcing_values>
-      <sourcing_step/>
-      <sourcing_field/>
-      <allowed_value/>
+      <sourcing_step />
+      <sourcing_field />
+      <allowed_value />
     </validator_field>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2723,26 +2723,26 @@
   <step>
     <name>Disco</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>MY-SQL</connection>
+    <connection>jonas_discos</connection>
     <sql>SELECT D.titulo,D.tipo,D.pvp, D.compra_preco, C.data_compra, D.id
 	FROM disco AS D
     INNER JOIN compra AS C
     ON D.compra = C.id</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2758,23 +2758,23 @@
   <step>
     <name>Disco_artista</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>MY-SQL</connection>
+    <connection>jonas_discos</connection>
     <sql>SELECT artista, disco FROM disco_artista</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2790,23 +2790,23 @@
   <step>
     <name>Disco_genero</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>MY-SQL</connection>
+    <connection>jonas_discos</connection>
     <sql>SELECT genero, disco FROM disco_genero</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2822,36 +2822,36 @@
   <step>
     <name>Extrair Clientes Mongo</name>
     <type>MongoDbInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <hostname>localhost</hostname>
     <port>27017</port>
     <use_all_replica_members>N</use_all_replica_members>
-    <db_name>dwMongo</db_name>
-    <fields_name/>
+    <db_name>jonas_discos</db_name>
+    <fields_name />
     <collection>clientes</collection>
     <json_field_name>json</json_field_name>
-    <json_query/>
-    <auth_database/>
-    <auth_user/>
+    <json_query />
+    <auth_database />
+    <auth_user />
     <auth_password>Encrypted </auth_password>
-    <auth_mech/>
+    <auth_mech />
     <auth_kerberos>N</auth_kerberos>
-    <connect_timeout/>
-    <socket_timeout/>
+    <connect_timeout />
+    <socket_timeout />
     <use_ssl_socket_factory>N</use_ssl_socket_factory>
     <read_preference>primary</read_preference>
     <output_json>Y</output_json>
     <query_is_pipeline>N</query_is_pipeline>
     <execute_for_each_row>N</execute_for_each_row>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2867,36 +2867,36 @@
   <step>
     <name>Extrair Discos Mongo</name>
     <type>MongoDbInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <hostname>localhost</hostname>
     <port>27017</port>
     <use_all_replica_members>N</use_all_replica_members>
-    <db_name>dwMongo</db_name>
-    <fields_name/>
+    <db_name>jonas_discos</db_name>
+    <fields_name />
     <collection>disco</collection>
     <json_field_name>json</json_field_name>
-    <json_query/>
-    <auth_database/>
-    <auth_user/>
+    <json_query />
+    <auth_database />
+    <auth_user />
     <auth_password>Encrypted </auth_password>
-    <auth_mech/>
+    <auth_mech />
     <auth_kerberos>N</auth_kerberos>
-    <connect_timeout/>
-    <socket_timeout/>
+    <connect_timeout />
+    <socket_timeout />
     <use_ssl_socket_factory>N</use_ssl_socket_factory>
     <read_preference>primary</read_preference>
     <output_json>Y</output_json>
     <query_is_pipeline>N</query_is_pipeline>
     <execute_for_each_row>N</execute_for_each_row>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2912,36 +2912,36 @@
   <step>
     <name>Extrair Loja Mongo</name>
     <type>MongoDbInput</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <hostname>localhost</hostname>
     <port>27017</port>
     <use_all_replica_members>N</use_all_replica_members>
-    <db_name>dwMongo</db_name>
-    <fields_name/>
+    <db_name>jonas_discos</db_name>
+    <fields_name />
     <collection>loja</collection>
     <json_field_name>json</json_field_name>
-    <json_query/>
-    <auth_database/>
-    <auth_user/>
+    <json_query />
+    <auth_database />
+    <auth_user />
     <auth_password>Encrypted </auth_password>
-    <auth_mech/>
+    <auth_mech />
     <auth_kerberos>N</auth_kerberos>
-    <connect_timeout/>
-    <socket_timeout/>
+    <connect_timeout />
+    <socket_timeout />
     <use_ssl_socket_factory>N</use_ssl_socket_factory>
     <read_preference>primary</read_preference>
     <output_json>Y</output_json>
     <query_is_pipeline>N</query_is_pipeline>
     <execute_for_each_row>N</execute_for_each_row>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -2957,33 +2957,33 @@
   <step>
     <name>Extrair_cliente</name>
     <type>ExcelInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <header>Y</header>
     <noempty>Y</noempty>
     <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
+    <filefield />
+    <sheetfield />
+    <sheetrownumfield />
+    <rownumfield />
+    <sheetfield />
+    <filefield />
     <limit>0</limit>
-    <encoding/>
+    <encoding />
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
+    <accept_field />
+    <accept_stepname />
     <file>
-      <name>C:\Users\Utilizador\Documents\GitHub\data_warehouse\Excel\vendedor_vinil.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
+      <name>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/Excel/vendedor_vinil.xlsx</name>
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -2995,10 +2995,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>nome cliente</name>
@@ -3007,10 +3007,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>morada</name>
@@ -3019,10 +3019,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>localidade</name>
@@ -3031,10 +3031,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>codigo postal</name>
@@ -3043,10 +3043,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>estatuto</name>
@@ -3055,10 +3055,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>telefone</name>
@@ -3067,10 +3067,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
     </fields>
     <sheets>
@@ -3083,23 +3083,23 @@
     <strict_types>N</strict_types>
     <error_ignored>N</error_ignored>
     <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
+    <bad_line_files_destination_directory />
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
+    <error_line_files_destination_directory />
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
+    <line_number_files_destination_directory />
     <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
     <spreadsheet_type>POI</spreadsheet_type>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3115,33 +3115,33 @@
   <step>
     <name>Extrair_disco</name>
     <type>ExcelInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <header>Y</header>
     <noempty>Y</noempty>
     <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
+    <filefield />
+    <sheetfield />
+    <sheetrownumfield />
+    <rownumfield />
+    <sheetfield />
+    <filefield />
     <limit>0</limit>
-    <encoding/>
+    <encoding />
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
+    <accept_field />
+    <accept_stepname />
     <file>
-      <name>C:\Users\Utilizador\Documents\GitHub\data_warehouse\Excel\vendedor_vinil.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
+      <name>/Users/tiagofraga/Desktop/Complementares/DW/Trabalhos/Local/data_warehouse/Excel/vendedor_vinil.xlsx</name>
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -3153,10 +3153,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>titulo</name>
@@ -3165,10 +3165,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>nr faixas</name>
@@ -3177,10 +3177,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>duracao</name>
@@ -3189,10 +3189,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>rpm</name>
@@ -3201,10 +3201,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>tipo</name>
@@ -3213,10 +3213,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>artistas</name>
@@ -3225,10 +3225,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>genero</name>
@@ -3237,10 +3237,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>pvp</name>
@@ -3249,10 +3249,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>compra_preco</name>
@@ -3261,10 +3261,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>data_compra</name>
@@ -3273,10 +3273,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
     </fields>
     <sheets>
@@ -3289,23 +3289,23 @@
     <strict_types>N</strict_types>
     <error_ignored>N</error_ignored>
     <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
+    <bad_line_files_destination_directory />
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
+    <error_line_files_destination_directory />
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
+    <line_number_files_destination_directory />
     <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
     <spreadsheet_type>POI</spreadsheet_type>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3321,16 +3321,16 @@
   <step>
     <name>If field value is null</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>N</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -3338,8 +3338,8 @@
       </valuetypes>
     <fields>
       </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3355,25 +3355,25 @@
   <step>
     <name>Loja</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <connection>MY-SQL</connection>
+    <connection>jonas_discos</connection>
     <sql>SELECT L.localidade,L.id
 	FROM loja AS L
 </sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3389,13 +3389,13 @@
   <step>
     <name>Merge join</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>INNER</join_type>
     <step1>Sort rows</step1>
@@ -3406,8 +3406,8 @@
     <keys_2>
       <key>idCompra</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3423,13 +3423,13 @@
   <step>
     <name>Select values</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -3455,8 +3455,8 @@
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3472,13 +3472,13 @@
   <step>
     <name>Select values 2</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -3492,8 +3492,8 @@
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3509,13 +3509,13 @@
   <step>
     <name>Select values 2 2</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -3548,18 +3548,18 @@
         <precision>-2</precision>
         <conversion_mask>yyyy-MM-dd HH:mm:ss.SSS</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3575,13 +3575,13 @@
   <step>
     <name>Select values 3</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -3609,20 +3609,20 @@
         <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3638,13 +3638,13 @@
   <step>
     <name>Select values 4</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -3672,8 +3672,8 @@
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3689,20 +3689,20 @@
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
     <sort_size>1000000</sort_size>
-    <free_memory/>
+    <free_memory />
     <compress>N</compress>
-    <compress_variable/>
+    <compress_variable />
     <unique_rows>N</unique_rows>
     <fields>
       <field>
@@ -3714,8 +3714,8 @@
         <presorted>N</presorted>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3731,20 +3731,20 @@
   <step>
     <name>Unique rows (HashSet)</name>
     <type>UniqueRowsByHashSet</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <store_values>N</store_values>
     <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
+    <error_description />
     <fields>      </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3760,16 +3760,16 @@
   <step>
     <name>Valores_Null_Cliente</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -3778,61 +3778,61 @@
     <fields>
       <field>
         <name>cod_postal</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>compra</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>email</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>estatuto</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>localidade</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nome</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nr_discos</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>rua</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>telefone</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3848,16 +3848,16 @@
   <step>
     <name>Valores_Null_Cliente 2</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>N</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -3865,8 +3865,8 @@
       </valuetypes>
     <fields>
       </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3882,16 +3882,16 @@
   <step>
     <name>Valores_Null_Discos</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -3901,36 +3901,36 @@
       <field>
         <name>titulo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>compra_preco</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>tipo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>pvp</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>compra</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -3946,16 +3946,16 @@
   <step>
     <name>Valores_nulls_Cliente</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>N</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -3965,30 +3965,30 @@
       <field>
         <name>nome</name>
         <value>a</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>localidade</name>
         <value>a</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>estatuto</name>
         <value>a</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>nr_discos</name>
         <value>a</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4004,16 +4004,16 @@
   <step>
     <name>Valores_nulls_DArtista</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>N</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -4021,8 +4021,8 @@
       </valuetypes>
     <fields>
       </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4038,16 +4038,16 @@
   <step>
     <name>Valores_nulls_Dgenero</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>N</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -4055,8 +4055,8 @@
       </valuetypes>
     <fields>
       </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4072,16 +4072,16 @@
   <step>
     <name>Valores_nulls_Disco</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -4091,30 +4091,30 @@
       <field>
         <name>titulo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>compra_preco</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>tipo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>pvp</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4130,16 +4130,16 @@
   <step>
     <name>Valores_nulls_Disco 2</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -4149,30 +4149,30 @@
       <field>
         <name>titulo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>compra_preco</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>tipo</name>
         <value>N/A</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>pvp</name>
         <value>-1</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4188,16 +4188,16 @@
   <step>
     <name>Valores_nulls_Loja</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <replaceAllByValue>N/A</replaceAllByValue>
-    <replaceAllMask/>
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -4206,13 +4206,13 @@
     <fields>
       <field>
         <name>localidade</name>
-        <value/>
-        <mask/>
+        <value />
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -4230,5 +4230,5 @@
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes/>
+  <attributes />
 </transformation>
