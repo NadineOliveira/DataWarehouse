@@ -40,7 +40,8 @@ FOR EACH ROW
         titulo = new.titulo,
         tipo = new.tipo,
         pvp = new.pvp,
-        compra_preco = new.compra_preco;
+        compra_preco = new.compra_preco,
+        compra = new.compra;
 	END$$
 DELIMITER ;
 
