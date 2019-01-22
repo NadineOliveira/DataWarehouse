@@ -5,6 +5,7 @@ CREATE TRIGGER trigger_update_audcliente
 AFTER UPDATE ON `jonas discos`.cliente
 FOR EACH ROW
 	BEGIN
+    DECLARE du DATETIME;
     DECLARE idc INT;
     DECLARE nm,em,lc VARCHAR(128);
     DECLARE op VARCHAR(10);
@@ -15,14 +16,15 @@ FOR EACH ROW
 		nm = new.nome,
         nd = new.nr_discos,
         est = new.estatuto;
+        SET du = (SELECT now());
         IF(new.email is null) THEN SET em = "N/A";
         ELSE SET em = new.email;
         END IF;
         IF(new.localidade is null) THEN SET lc = "N/A";
         ELSE SET lc = new.localidade;
         END IF;
-	INSERT INTO `jonas discos`.audcliente(id,nome,email,localidade,nr_discos,estatuto,operation)
-									values(idc,nm,em,lc,nd,est,op);
+	INSERT INTO `jonas discos`.audcliente(id,nome,email,localidade,nr_discos,estatuto,operation,data_update)
+									values(idc,nm,em,lc,nd,est,op,du);
 	END$$
 DELIMITER ;
 
@@ -32,6 +34,7 @@ CREATE TRIGGER trigger_update_audcompra
 AFTER UPDATE ON `jonas discos`.compra
 FOR EACH ROW
 	BEGIN
+    DECLARE du DATETIME;
     DECLARE idc INT;
     DECLARE dt DATE;
     DECLARE ct FLOAT;
@@ -39,8 +42,9 @@ FOR EACH ROW
 	SET op = 'UPDATE',
 		ct = new.custo_total,
         dt = new.data_compra;
-	INSERT INTO `jonas discos`.audcompra(id,data_compra,custo_total,operation)
-									values(idc,dt,ct,op);
+	SET du = (SELECT now());
+	INSERT INTO `jonas discos`.audcompra(id,data_compra,custo_total,operation,data_update)
+									values(idc,dt,ct,op,du);
 	END$$
 DELIMITER ;
 
@@ -50,7 +54,8 @@ CREATE TRIGGER trigger_update_auddisco
 AFTER UPDATE ON `jonas discos`.disco
 FOR EACH ROW
 	BEGIN
-    DECLARE idD INT;
+    DECLARE du DATETIME;
+    DECLARE idD, compraID INT;
     DECLARE tt VARCHAR(128);
     DECLARE tp ENUM('EP','LP','SINGLE','MAXI','N/A');
     DECLARE pp,cp FLOAT;
@@ -59,7 +64,9 @@ FOR EACH ROW
 	SET op = 'UPDATE',
 		tt = new.titulo,
         idD = new.id,
-        pp = new.pvp;
+        pp = new.pvp,
+        compraID = new.compra;
+	SET du = (SELECT now());
         IF(new.tipo is null) THEN SET tp = 'N/A';
         ELSE SET tp = new.tipo;
         END IF;
@@ -68,8 +75,8 @@ FOR EACH ROW
         END IF;
 	SET dt = (SELECT C.data_compra FROM `jonas discos`.compra AS C
 				WHERE C.id = new.compra);
-	INSERT INTO `jonas discos`.auddisco(id,titulo,tipo,pvp,compra_preco,operation,data_compra)
-								values(idD,tt,tp,pp,cp,op,dt);
+	INSERT INTO `jonas discos`.auddisco(id,titulo,tipo,pvp,compra_preco,operation,data_compra,data_update,compra)
+								values(idD,tt,tp,pp,cp,op,dt,du,compraID);
 	END$$
 DELIMITER ;
 
@@ -79,14 +86,15 @@ CREATE TRIGGER trigger_update_audloja
 AFTER UPDATE ON `jonas discos`.loja
 FOR EACH ROW
 	BEGIN
+    DECLARE du DATETIME;
     DECLARE idL INT;
     DECLARE lc VARCHAR(128);
     DECLARE op VARCHAR(10);
 	SET op = 'UPDATE',
 		idL = new.id,
 		lc = new.localidade;
-        
-	INSERT INTO `jonas discos`.audloja(id,localidade,operation) values(idL,lc,op);
+	SET du = (SELECT now());
+	INSERT INTO `jonas discos`.audloja(id,localidade,operation,data_update) values(idL,lc,op,du);
 	END$$
 DELIMITER ;
 
@@ -96,14 +104,16 @@ CREATE TRIGGER trigger_update_audartista
 AFTER UPDATE ON `jonas discos`.disco_artista
 FOR EACH ROW
 	BEGIN
+    DECLARE du DATETIME;
     DECLARE ar VARCHAR(128);
     DECLARE idD INT;
     DECLARE op VARCHAR(10);
 	SET op = 'UPDATE',
 		ar = new.artista,
 		idD = new.disco;
-	INSERT INTO `jonas discos`.auddisco_artista(artista,audDisco_id,operation)
-											values(ar,idD,op);
+	SET du = (SELECT now());
+	INSERT INTO `jonas discos`.auddisco_artista(artista,audDisco_id,operation,data_update)
+											values(ar,idD,op,du);
 	END$$
 DELIMITER ;
 
@@ -113,13 +123,15 @@ CREATE TRIGGER trigger_update_audgenero
 AFTER UPDATE ON `jonas discos`.disco_genero
 FOR EACH ROW
 	BEGIN
+    DECLARE du DATETIME;
     DECLARE ge VARCHAR(128);
     DECLARE idD INT;
     DECLARE op VARCHAR(10);
 	SET op = 'UPDATE',
 		ge = new.genero,
 		idD = new.disco;
-	INSERT INTO `jonas discos`.auddisco_genero(genero,audDisco_id,operation)
-										values(ge,idD,op);
+	SET du = (SELECT now());
+	INSERT INTO `jonas discos`.auddisco_genero(genero,audDisco_id,operation,data_update)
+										values(ge,idD,op,du);
 	END$$
 DELIMITER ;
