@@ -26,8 +26,7 @@ p_nome VARCHAR(45),p_localidade VARCHAR(45), p_estatuto VARCHAR(45), p_nr_discos
 BEGIN
 DECLARE id, existe INT;
 SET id = (SELECT LK.id FROM lk_cliente AS LK
-			WHERE LK.email = p_email
-            AND p_source_id like LK.source_id);
+			WHERE LK.email = p_email);
             
 IF(id is null) THEN/*id nao existe na tabela lookup*/
 START TRANSACTION;
@@ -53,8 +52,7 @@ p_localidade VARCHAR(45))
 BEGIN
 DECLARE id, existe INT;
 SET id = (SELECT LK.id FROM lk_loja AS LK
-			WHERE p_source_id like LK.source_id
-            AND p_localidade like LK.localidade);
+			WHERE p_localidade like LK.localidade);
 
 IF(id is null) THEN
 START TRANSACTION;
@@ -82,11 +80,10 @@ p_nome VARCHAR(128),p_id_disco INT)
 BEGIN
 DECLARE idA, idD, existe INT;
 SET idA = (SELECT LK.id FROM lk_artista AS LK
-			WHERE LK.nome = p_nome
-            AND p_source_id like LK.source);
+			WHERE LK.nome = p_nome);
 SET idD = (SELECT LKD.id FROM lk_disco AS LKD
 			WHERE LKD.id_disco_source = p_id_disco
-            AND p_source_id like LKD.source_id);
+            AND LKD.source_id like p_source_id);
 
 IF(idA is null) THEN
 START TRANSACTION;
@@ -115,11 +112,10 @@ p_genero VARCHAR(128),p_id_disco INT)
 BEGIN
 DECLARE idG, idD, existe INT;
 SET idG = (SELECT LK.id FROM lk_genero AS LK
-			WHERE LK.genero = p_genero
-            AND p_source_id like LK.source_id);
+			WHERE LK.genero = p_genero);
 SET idD = (SELECT LKD.id FROM lk_disco AS LKD
 			WHERE LKD.id_disco_source = p_id_disco
-            AND p_source_id like LKD.source_id);
+            AND LKD.source_id like p_source_id);
 
 IF(idG is null) THEN
 START TRANSACTION;

@@ -430,11 +430,121 @@
     <created_date>2019/01/21 23:12:56.818</created_date>
     <modified_user>-</modified_user>
     <modified_date>2019/01/21 23:12:56.818</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>DW-AR</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>DW-AR</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Jonas Discos</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>jonas discos</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Extrair Vendas</from>
@@ -453,7 +563,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
+    <connection>DW-AR</connection>
     <schema />
     <table>pre_TF_Vendas</table>
     <commit>1000</commit>
@@ -517,14 +627,14 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
+    <connection>Jonas Discos</connection>
     <sql>SELECT L.localidade,C.data_compra, C.custo_total, D.id, CL.email 
-FROM `jonas discos`.compra AS C
-INNER JOIN `jonas discos`.loja AS L
+FROM `jonas discos`.audCompra AS C
+INNER JOIN `jonas discos`.audLoja AS L
 ON C.loja = L.id
-INNER JOIN `jonas discos`.cliente AS CL
+INNER JOIN `jonas discos`.audCliente AS CL
 ON CL.id = C.cliente
-INNER JOIN `jonas discos`.disco AS D
+INNER JOIN `jonas discos`.audDisco AS D
 ON D.compra = C.id;</sql>
     <limit>0</limit>
     <lookup />

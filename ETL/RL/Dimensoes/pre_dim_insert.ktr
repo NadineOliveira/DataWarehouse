@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>RL_DIM_Update</name>
+    <name>pre_dim_insert</name>
     <description />
     <extended_description />
     <trans_version />
@@ -427,59 +427,184 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2019/01/21 23:06:49.384</created_date>
+    <created_date>2019/01/22 14:05:41.110</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/01/21 23:06:49.384</modified_date>
-    <key_for_session_key />
+    <modified_date>2019/01/22 14:05:41.110</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>MySQL-AR</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>dw-ar</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>MySQL-REL</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>jonas discos</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
-      <from>Ordenar Por Data</from>
-      <to>Inserir em UpdateMaquina</to>
+      <from>audCliente</from>
+      <to>Add source</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar Por Data 2</from>
-      <to>Inserir em UpdateProduto</to>
+      <from>Add source</from>
+      <to>preCliente</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar Por Data 3</from>
-      <to>Inserir em UpdateUtilizador</to>
+      <from>audLoja</from>
+      <to>Add source 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ordenar Por Data 4</from>
-      <to>Inserir em UpdateMaquina 2</to>
+      <from>Add source 2</from>
+      <to>preLoja</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PreDimLocal_Updates</from>
-      <to>Ordenar Por Data 4</to>
+      <from>Add source 3</from>
+      <to>preDisco</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PreDimMaquina_Updates</from>
-      <to>Ordenar Por Data</to>
+      <from>audDisco_genero</from>
+      <to>Add source 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PreDimProduto_Update</from>
-      <to>Ordenar Por Data 2</to>
+      <from>Add source 4</from>
+      <to>preDiscoGenero</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PreDimUtilizador_Updates</from>
-      <to>Ordenar Por Data 3</to>
+      <from>audDisco_Artista</from>
+      <to>Add source 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add source 5</from>
+      <to>preDisco_Artista</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>audDisco</from>
+      <to>Execute SQL script</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Execute SQL script</from>
+      <to>Add source 3</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Inserir em UpdateMaquina</name>
-    <type>ExecSQL</type>
+    <name>Add source</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -488,263 +613,18 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_update_maquina(?,?,?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>source</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>modelo</name>
-      </argument>
-      <argument>
-        <name>renda</name>
-      </argument>
-      <argument>
-        <name>capacidade</name>
-      </argument>
-      <argument>
-        <name>data_update</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inserir em UpdateMaquina 2</name>
-    <type>ExecSQL</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection />
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_update_local(?,?,?,?,?,?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>source</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>cod_postal</name>
-      </argument>
-      <argument>
-        <name>freguesia</name>
-      </argument>
-      <argument>
-        <name>rua</name>
-      </argument>
-      <argument>
-        <name>cidade</name>
-      </argument>
-      <argument>
-        <name>distrito</name>
-      </argument>
-      <argument>
-        <name>pais</name>
-      </argument>
-      <argument>
-        <name>data_update</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inserir em UpdateProduto</name>
-    <type>ExecSQL</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection />
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_update_produto(?,?,?,?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>source</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>nome</name>
-      </argument>
-      <argument>
-        <name>pais</name>
-      </argument>
-      <argument>
-        <name>precoA</name>
-      </argument>
-      <argument>
-        <name>precoV</name>
-      </argument>
-      <argument>
-        <name>data_update</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inserir em UpdateUtilizador</name>
-    <type>ExecSQL</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection />
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>call sp_update_utilizador(?,?,?,?,?,?,?,?);</sql>
-    <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
-    <arguments>
-      <argument>
-        <name>source</name>
-      </argument>
-      <argument>
-        <name>source_id</name>
-      </argument>
-      <argument>
-        <name>email</name>
-      </argument>
-      <argument>
-        <name>nome</name>
-      </argument>
-      <argument>
-        <name>profissao</name>
-      </argument>
-      <argument>
-        <name>genero</name>
-      </argument>
-      <argument>
-        <name>data_nascimento</name>
-      </argument>
-      <argument>
-        <name>data_update</name>
-      </argument>
-    </arguments>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar Por Data</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>data_update</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>source_id</name>
+        <type>STRING</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>sql</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes />
@@ -756,14 +636,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>224</yloc>
+      <xloc>256</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ordenar Por Data 2</name>
-    <type>SortRows</type>
+    <name>Add source 2</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -772,21 +652,18 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>data_update</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>source_id</name>
+        <type>STRING</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>sql</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes />
@@ -798,14 +675,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>224</yloc>
+      <xloc>416</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ordenar Por Data 3</name>
-    <type>SortRows</type>
+    <name>Add source 3</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -814,21 +691,57 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>data_update</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>source_id</name>
+        <type>STRING</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>sql</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add source 4</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>source_id</name>
+        <type>STRING</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>sql</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes />
@@ -841,13 +754,13 @@
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
-      <yloc>224</yloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ordenar Por Data 4</name>
-    <type>SortRows</type>
+    <name>Add source 5</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -856,21 +769,18 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>data_update</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>source_id</name>
+        <type>STRING</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>sql</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes />
@@ -882,13 +792,55 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>224</yloc>
+      <xloc>912</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PreDimLocal_Updates</name>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-REL</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>Y</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>SELECT data_compra From Compra
+WHERE id = ?</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+      <argument>
+        <name>compra</name>
+      </argument>
+    </arguments>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>audCliente</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -898,19 +850,8 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
-    <sql>SELECT
-  source
-, source_id
-, cod_postal
-, freguesia
-, rua
-, cidade
-, distrito
-, pais
-, data_update
-FROM predimlocal
-WHERE op = 'U'</sql>
+    <connection>MySQL-REL</connection>
+    <sql>SELECT * FROM audCliente</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -925,13 +866,13 @@ WHERE op = 'U'</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>96</yloc>
+      <xloc>256</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PreDimMaquina_Updates</name>
+    <name>audDisco</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -941,16 +882,18 @@ WHERE op = 'U'</sql>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
+    <connection>MySQL-REL</connection>
     <sql>SELECT
-  source
-, source_id
-, modelo
-, renda
-, capacidade
+  id
+, titulo
+, tipo
+, pvp
+, compra_preco
+, operation
+, data_compra
 , data_update
-FROM predimmaquina
-where op = 'U'
+, compra
+FROM auddisco
 </sql>
     <limit>0</limit>
     <lookup />
@@ -966,13 +909,13 @@ where op = 'U'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>96</yloc>
+      <xloc>592</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PreDimProduto_Update</name>
+    <name>audDisco_Artista</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -982,18 +925,8 @@ where op = 'U'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
-    <sql>SELECT
-  source
-, source_id
-, nome
-, pais
-, precoV
-, precoA
-, data_update
-FROM predimproduto
-WHERE op = 'U'
-</sql>
+    <connection>MySQL-REL</connection>
+    <sql>SELECT * FROM audDisco_Artista</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -1008,13 +941,13 @@ WHERE op = 'U'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>96</yloc>
+      <xloc>912</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PreDimUtilizador_Updates</name>
+    <name>audDisco_genero</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1024,19 +957,8 @@ WHERE op = 'U'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection />
-    <sql>SELECT
-  source
-, source_id
-, email
-, nome
-, profissao
-, genero
-, data_nascimento
-, data_update
-FROM predimutilizador
-WHERE op = 'U'
-</sql>
+    <connection>MySQL-REL</connection>
+    <sql>SELECT * FROM audDisco_Genero</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -1052,7 +974,391 @@ WHERE op = 'U'
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
-      <yloc>96</yloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>audLoja</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-REL</connection>
+    <sql>SELECT * FROM audLoja</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>preCliente</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-AR</connection>
+    <schema />
+    <table>pre_dim_cliente</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>nome</column_name>
+        <stream_name>nome</stream_name>
+      </field>
+      <field>
+        <column_name>email</column_name>
+        <stream_name>email</stream_name>
+      </field>
+      <field>
+        <column_name>localidade</column_name>
+        <stream_name>localidade</stream_name>
+      </field>
+      <field>
+        <column_name>nr_discos</column_name>
+        <stream_name>nr_discos</stream_name>
+      </field>
+      <field>
+        <column_name>estatuto</column_name>
+        <stream_name>estatuto</stream_name>
+      </field>
+      <field>
+        <column_name>operation</column_name>
+        <stream_name>operation</stream_name>
+      </field>
+      <field>
+        <column_name>data_update</column_name>
+        <stream_name>data_update</stream_name>
+      </field>
+      <field>
+        <column_name>source_id</column_name>
+        <stream_name>source_id</stream_name>
+      </field>
+      <field>
+        <column_name>id_Cliente_source</column_name>
+        <stream_name>id</stream_name>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>preDisco</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-AR</connection>
+    <schema />
+    <table>pre_dim_disco</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>titulo</column_name>
+        <stream_name>titulo</stream_name>
+      </field>
+      <field>
+        <column_name>tipo</column_name>
+        <stream_name>tipo</stream_name>
+      </field>
+      <field>
+        <column_name>pvp</column_name>
+        <stream_name>pvp</stream_name>
+      </field>
+      <field>
+        <column_name>compra_preco</column_name>
+        <stream_name>compra_preco</stream_name>
+      </field>
+      <field>
+        <column_name>operation</column_name>
+        <stream_name>operation</stream_name>
+      </field>
+      <field>
+        <column_name>data_compra</column_name>
+        <stream_name>data_compra</stream_name>
+      </field>
+      <field>
+        <column_name>data_update</column_name>
+        <stream_name>data_update</stream_name>
+      </field>
+      <field>
+        <column_name>source_id</column_name>
+        <stream_name>source_id</stream_name>
+      </field>
+      <field>
+        <column_name>id_disco_source</column_name>
+        <stream_name>id</stream_name>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>preDiscoGenero</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-AR</connection>
+    <schema />
+    <table>pre_dim_genero</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>genero</column_name>
+        <stream_name>genero</stream_name>
+      </field>
+      <field>
+        <column_name>operation</column_name>
+        <stream_name>operation</stream_name>
+      </field>
+      <field>
+        <column_name>data_update</column_name>
+        <stream_name>data_update</stream_name>
+      </field>
+      <field>
+        <column_name>source_id</column_name>
+        <stream_name>source_id</stream_name>
+      </field>
+      <field>
+        <column_name>id_disco</column_name>
+        <stream_name>audDisco_id</stream_name>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>preDisco_Artista</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-AR</connection>
+    <schema />
+    <table>pre_dim_artista</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>operation</column_name>
+        <stream_name>operation</stream_name>
+      </field>
+      <field>
+        <column_name>data_update</column_name>
+        <stream_name>data_update</stream_name>
+      </field>
+      <field>
+        <column_name>source_id</column_name>
+        <stream_name>source_id</stream_name>
+      </field>
+      <field>
+        <column_name>nome</column_name>
+        <stream_name>artista</stream_name>
+      </field>
+      <field>
+        <column_name>id_disco</column_name>
+        <stream_name>audDisco_id</stream_name>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>preLoja</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>MySQL-AR</connection>
+    <schema />
+    <table>pre_dim_loja</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>localidade</column_name>
+        <stream_name>localidade</stream_name>
+      </field>
+      <field>
+        <column_name>operation</column_name>
+        <stream_name>operation</stream_name>
+      </field>
+      <field>
+        <column_name>data_update</column_name>
+        <stream_name>data_update</stream_name>
+      </field>
+      <field>
+        <column_name>source_id</column_name>
+        <stream_name>source_id</stream_name>
+      </field>
+      <field>
+        <column_name>idpre_dim_Loja</column_name>
+        <stream_name>id</stream_name>
+      </field>
+    </fields>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

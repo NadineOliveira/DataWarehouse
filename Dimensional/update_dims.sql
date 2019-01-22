@@ -10,7 +10,7 @@ BEGIN
     IF(p_data_update is null) THEN SET @du = '0000-00-00';
     ELSE SET @du = p_data_update;
     END IF;
-    INSERT INTO `dw-dw`.histcliente (select idDimCliente, nome,updatecliente
+    INSERT INTO `dw-dw`.histcliente (select idDimCliente, nome,
 									localidade,estatuto,nr_discos,email,@du,
                                     idDimCliente
                                     FROM dimcliente
