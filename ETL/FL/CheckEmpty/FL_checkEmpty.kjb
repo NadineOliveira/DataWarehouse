@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>FL_checkEmpty</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2019/01/18 11:03:22.275</created_date>
@@ -19,10 +19,10 @@
     <database>DW-AR</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86af39b85ac169c71cf87aad6</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce93bcc9</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -69,12 +69,12 @@
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection />
-    <schema />
-    <table />
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -182,10 +182,10 @@
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -273,10 +273,10 @@
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -338,14 +338,81 @@
       <name>ROOT_CHANNEL_ID</name>
     </field>
   </channel-log-table>
+  <checkpoint-log-table>
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
+    <max_nr_retries/>
+    <run_retry_period/>
+    <namespace_parameter/>
+    <save_parameters/>
+    <save_result_rows/>
+    <save_result_files/>
+    <field>
+      <id>ID_JOB_RUN</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB_RUN</name>
+    </field>
+    <field>
+      <id>ID_JOB</id>
+      <enabled>Y</enabled>
+      <name>ID_JOB</name>
+    </field>
+    <field>
+      <id>JOBNAME</id>
+      <enabled>Y</enabled>
+      <name>JOBNAME</name>
+    </field>
+    <field>
+      <id>NAMESPACE</id>
+      <enabled>Y</enabled>
+      <name>NAMESPACE</name>
+    </field>
+    <field>
+      <id>CHECKPOINT_NAME</id>
+      <enabled>Y</enabled>
+      <name>CHECKPOINT_NAME</name>
+    </field>
+    <field>
+      <id>CHECKPOINT_COPYNR</id>
+      <enabled>Y</enabled>
+      <name>CHECKPOINT_COPYNR</name>
+    </field>
+    <field>
+      <id>ATTEMPT_NR</id>
+      <enabled>Y</enabled>
+      <name>ATTEMPT_NR</name>
+    </field>
+    <field>
+      <id>JOB_RUN_START_DATE</id>
+      <enabled>Y</enabled>
+      <name>JOB_RUN_START_DATE</name>
+    </field>
+    <field>
+      <id>LOGDATE</id>
+      <enabled>Y</enabled>
+      <name>LOGDATE</name>
+    </field>
+    <field>
+      <id>RESULT_XML</id>
+      <enabled>Y</enabled>
+      <name>RESULT_XML</name>
+    </field>
+    <field>
+      <id>PARAMETER_XML</id>
+      <enabled>Y</enabled>
+      <name>PARAMETER_XML</name>
+    </field>
+  </checkpoint-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
-      <attributes />
+      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -361,21 +428,21 @@
       <nr>0</nr>
       <xloc>144</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimCalendario</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimCalendario</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -383,21 +450,21 @@
       <nr>0</nr>
       <xloc>736</xloc>
       <yloc>192</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>PreDimCliente</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_dim_Cliente</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -405,21 +472,21 @@
       <nr>0</nr>
       <xloc>272</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>PreDimDisco</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_dim_disco</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -427,21 +494,21 @@
       <nr>0</nr>
       <xloc>400</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimCliente</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimCliente</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -449,21 +516,21 @@
       <nr>0</nr>
       <xloc>160</xloc>
       <yloc>192</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimEventos</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimCalendario</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -471,21 +538,21 @@
       <nr>0</nr>
       <xloc>608</xloc>
       <yloc>192</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimDisco</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimDisco</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -493,21 +560,21 @@
       <nr>0</nr>
       <xloc>304</xloc>
       <yloc>192</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>LTCliente</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>lk_Cliente</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -515,21 +582,21 @@
       <nr>0</nr>
       <xloc>448</xloc>
       <yloc>304</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>LTDisco</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>lk_Disco</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -537,21 +604,21 @@
       <nr>0</nr>
       <xloc>592</xloc>
       <yloc>304</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>preFactVendas</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_TF_Vendas</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -559,21 +626,21 @@
       <nr>0</nr>
       <xloc>736</xloc>
       <yloc>304</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>factVendas</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>TF_Vendas</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -581,21 +648,21 @@
       <nr>0</nr>
       <xloc>736</xloc>
       <yloc>448</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>preDimGenero</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_dim_Genero</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -603,21 +670,21 @@
       <nr>0</nr>
       <xloc>608</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>preDimArtista</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_dim_Artista</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -625,21 +692,21 @@
       <nr>0</nr>
       <xloc>736</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimGenero</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimGenero</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -647,21 +714,21 @@
       <nr>0</nr>
       <xloc>304</xloc>
       <yloc>304</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimArtista</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimArtista</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -669,21 +736,21 @@
       <nr>0</nr>
       <xloc>160</xloc>
       <yloc>304</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DimLoja</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>dimLoja</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -691,21 +758,21 @@
       <nr>0</nr>
       <xloc>448</xloc>
       <yloc>192</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>preDimLoja</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <attributes />
+      <attributes/>
       <connection>DW-AR</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>pre_dim_Loja</tablename>
       <success_condition>rows_count_equal</success_condition>
       <limit>0</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql />
+      <custom_sql/>
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -713,17 +780,17 @@
       <nr>0</nr>
       <xloc>496</xloc>
       <yloc>80</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>SQL</name>
-      <description />
+      <description/>
       <type>SQL</type>
-      <attributes />
+      <attributes/>
       <sql>INSERT INTO etl Values (1,now());</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
-      <sqlfilename />
+      <sqlfilename/>
       <sendOneStatement>F</sendOneStatement>
       <connection>DW-AR</connection>
       <parallel>N</parallel>
@@ -731,7 +798,7 @@
       <nr>0</nr>
       <xloc>608</xloc>
       <yloc>448</yloc>
-      <attributes_kjc />
+      <attributes_kjc/>
     </entry>
   </entries>
   <hops>
@@ -891,5 +958,5 @@
   </hops>
   <notepads>
   </notepads>
-  <attributes />
+  <attributes/>
 </job>
